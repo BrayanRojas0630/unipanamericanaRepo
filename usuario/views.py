@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-#from .models import Noticias, Perfil, User
+from .models import Noticias, Perfil, User
 
 from usuario.forms import login_form
 from django.contrib.auth import authenticate, login, logout
