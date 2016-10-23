@@ -3,6 +3,11 @@ from administrador.models import Proyecto
 from django.contrib.auth.models import User
 
 
+class Corte(models.Model):
+    nombre=models.CharField(max_length=100, primary_key=True)
+    porcentaje=models.IntegerField(blank=True, null=True)
+    nota=models.IntegerField(blank=True, null=True)
+
 class Actividad(models.Model):
     nombre=models.CharField(max_length=100)
     descripcion=models.CharField(max_length=100)
@@ -25,3 +30,4 @@ class Actividad_Estudiante(models.Model):
     
     idActividad=models.ForeignKey(Actividad, on_delete=models.CASCADE)
     UsuarioEstudiante=models.ForeignKey(User, on_delete=models.CASCADE)
+    nombreCorte=models.ForeignKey(Corte, on_delete=models.CASCADE)

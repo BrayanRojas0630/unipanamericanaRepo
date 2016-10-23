@@ -84,7 +84,7 @@ class Empresa(models.Model):
     
     
     
-class sublinea(models.Model):
+class Sublinea(models.Model):
     nombre=models.CharField(max_length=100, primary_key=True)
     Descripcion=models.CharField(max_length=100)
         
@@ -161,7 +161,7 @@ class Producto_de_Investigacion(models.Model):
 class Jurado(models.Model):
     nombre=models.CharField(max_length=100)
     areaConocimiento=models.CharField(max_length=100)
-    correo==models.CharField(max_length=100)
+    correo=models.CharField(max_length=100)
     celular=models.CharField(max_length=100)
     
 class Sustentacion(models.Model):
