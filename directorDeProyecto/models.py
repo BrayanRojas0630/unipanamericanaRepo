@@ -7,7 +7,13 @@ class Actividad(models.Model):
     nombre=models.CharField(max_length=100)
     descripcion=models.CharField(max_length=100)
     fecha_Limite=models.DateField()
-    
+    corte=models.CharField(max_length=100)
+    nota=models.CharField(max_length=100)
+    porcentaje=models.CharField(max_length=100)
+    tipo_actividad=models.CharField(max_length=100)
+    estado=models.CharField(max_length=100)
+    documentoAdjunto=models.CharField(max_length=100)
+    observaciones=models.CharField(max_length=100)
     idDirector=models.ForeignKey(User,on_delete=models.CASCADE)
     idProyecto=models.ForeignKey(Proyecto,on_delete=models.CASCADE)
     

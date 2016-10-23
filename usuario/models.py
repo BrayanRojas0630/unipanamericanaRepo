@@ -23,6 +23,7 @@ class Perfil(models.Model):
     rol_Segun_Colciencias=models.CharField(max_length=100, blank= True, null = True)
     nombreMateriaProgramaEstudiante=models.CharField(max_length=100, blank= True, null = True)
     codigoMateriaProgramaEstudiante=models.CharField(max_length=100, blank= True, null = True)
+    estadoInscripcion=models.CharField(max_length=100, blank= True, null = True)
     
     fkFacultad=models.ForeignKey(Facultad, on_delete=models.CASCADE, blank=True, null=True)
     fkProyecto=models.ForeignKey(Proyecto, on_delete=models.CASCADE, blank=True, null=True)
@@ -34,3 +35,5 @@ class Noticias(models.Model):
     contenido=models.CharField(max_length=100)
     fecha_publicacion=models.CharField(max_length=100)
     propietario=models.ForeignKey(User,on_delete=models.CASCADE)
+    enlaceImagen=models.CharField(max_length=500)
+    enlaaceVideo=models.CharField(max_length=500)
