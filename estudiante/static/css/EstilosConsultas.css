@@ -1,0 +1,15 @@
+.contenido{
+	padding: 8%;
+	padding-top: 15%;
+}
+
+.titulo h1{
+	width: 100%;
+	font-weight: bold;
+	margin-top: 50%;	
+	text-align: center;
+}
+
+.danger.estiloTabla{
+	color: #000;
+}
