@@ -1,5 +1,8 @@
 $(document).ready(function(){
 	$('#contenedor, #formLogin').hide();
+	$('.navBar a').click(function(e){
+        e.preventDefault()
+    });
 	$('#botonIngresar').click(function () {
         $('#contenedor, #formLogin').fadeIn(1000);
     });

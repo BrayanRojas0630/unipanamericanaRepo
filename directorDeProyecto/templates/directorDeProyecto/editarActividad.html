@@ -1,0 +1,125 @@
+{% extends 'directorDeProyecto/base/baseDirectorProyecto.html' %}
+{% load staticfiles %}
+{% block title %}Editar Actividad{% endblock %}
+{% block extraLinks %}
+<link rel="stylesheet" href="{% static 'css/EstilosCrearProyecto.css' %}">
+{% endblock %}
+{% block contend %}
+<div class="formulario">
+	<fieldset>
+		<legend>Editar Actividad</legend>
+		<form class="form-horizontal" method="post" enctype="multipart/form-data">{% csrf_token %}
+		{{ form.as_p}}
+			<div class="formIzq">
+			{% if listaActividaddes %}
+			
+					<div class="form-group">
+				      <label for="idActividad" class="col-lg-2 control-label labels">Actividad A Editar</label>
+				       <select class="form-control inputs" id="idActividad" name="idActividad" required>
+				    		{% for actividades in listaActividaddes %}
+				    		<option value="{{actividades.id}}">{{ actividades.nombre}}</option>
+				    		{% endfor %}
+				    	</select>
+				    </div>
+			
+			{% else %}
+					<div class="form-group has-error">
+				      <label for="idActividad" class="col-lg-2 control-label labels">Actividad A Editar</label>
+				       <select class="form-control inputs" id="idActividad" name="idActividad" required>
+				    		<option>No tienes actividades</option>
+				    	</select>
+				    </div>
+			{% endif %}
+					
+				    <div class="form-group">
+				      <label for="nombreActividad" class="col-lg-2 control-label labels">Nombre Actividad</label>
+				        <input type="text" class="form-control inputs" id="nombreActividad" name="nombreActividad" placeholder="Actividad" required>
+				    </div>
+				    <div class="form-group">
+				      <label for="fechaLimite" class="col-lg-2 control-label labels">Fecha Limite</label>
+				        <input type="date" class="form-control inputs" id="fechaLimite" name="fechaLimite" >
+				    </div>
+				    <div class="form-group">
+				      <label for="descripcion" class="col-lg-2 control-label labels">Descripcion Actividad</label>
+				        <textarea class="form-control inputs" rows="3" id="descripcion" name="descripcion" required></textarea>
+				    </div>
+				    
+				    <div class="form-group">
+				      <label for="observaciones" class="col-lg-2 control-label labels">Observaciones</label>
+				        <input type="text" class="form-control inputs" id="observaciones" name="observaciones" placeholder="Observaciones">
+				    </div>
+				    
+				     <div class="form-group">
+				      <label for="estado" class="col-lg-2 control-label labels">Estado</label>
+				        <input type="text" class="form-control inputs" id="estado" name="estado" placeholder="Estado">
+				    </div>
+			</div>
+			<div class="formDer">
+				    <div class="form-group">
+				      <label for="Nota" class="col-lg-2 control-label labels">Nota:</label>
+				        <input type="text" class="form-control inputs" id="nota" name="nota" placeholder="Nota">
+				    </div>
+				    
+				    
+				    {% if listaProyectos %}
+				    {% for proyectos in listaProyectos %}
+				    <div class="form-group">
+				      <label for="idProyecto" class="col-lg-2 control-label labels">Proyecto:</label>
+				        <select class="form-control inputs" id="idProyecto" name="idProyecto" required>
+				    		<option value="{{proyectos.id}}">{{ proyectos.nombre_IES}}</option>
+				    	</select>
+				    </div>
+				    {% endfor %}
+				    {% else %}
+				    <div class="form-group has-error">
+				      <label for="idProyecto" class="col-lg-2 control-label labels">Proyecto:</label>
+				        <select class="form-control inputs" id="idProyecto" name="idProyecto" required>
+				    		<option>No tienes proyectos</option>
+				    	</select>
+				    </div>
+				   	{% endif %}
+				    
+				    <div class="form-group">
+				      <label for="adjunto" class="col-lg-2 control-label labels">Adjuntar documento</label>
+				        <input type="file" name="adjunto" class="form-control inputs" id="adjunto" name="adjunto" placeholder="Adjuntar Archivo">
+				    </div>
+				    
+				    <div class="form-group">
+				      <label for="corte" class="col-lg-2 control-label labels">Corte</label>
+				        <input type="text" class="form-control inputs" id="corte" name="corte" placeholder="Corte">
+				    </div>
+				    
+				<div class="form-group">
+				      <label for="nota" class="col-lg-2 control-label labels">Nota</label>
+				        <input type="text" class="form-control inputs" id="nota" name="nota" placeholder="Nota">
+				    </div>
+				    
+				    <div class="form-group">
+				      <label for="porcentaje" class="col-lg-2 control-label labels">Porcentaje</label>
+				        <input type="text" class="form-control inputs" id="porcentaje" name="porcentaje" placeholder="Porcentaje">
+				    </div>
+				    
+				    <div class="form-group">
+				      <label for="tipo_actividad" class="col-lg-2 control-label labels">Tipo Actividad</label>
+				        <input type="text" class="form-control inputs" id="tipo_actividad" name="tipo_actividad" placeholder="Tipo Actividad">
+				    </div>
+
+				
+			</div>
+			
+			<div class="form-group">
+			      <div class="col-lg-10 col-lg-offset-5">
+			      	{% if message %}
+					<b>{{ message }}</b>
+					{% endif %}
+			        {% if listaActividaddes %}
+			        <button type="submit" class="btn btn-primary">Editar Actividad</button>
+			      	{% else %}
+			      	<button type="submit" class="btn btn-primary" disabled>Editar Actividad</button>
+			      	{% endif %}
+			      </div>
+			    </div>
+		</form>
+	</fieldset>
+</div>
+{% endblock %}

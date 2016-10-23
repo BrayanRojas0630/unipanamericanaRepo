@@ -11,7 +11,7 @@ class Corte(models.Model):
 class Actividad(models.Model):
     nombre=models.CharField(max_length=100)
     descripcion=models.CharField(max_length=100)
-    fecha_Limite=models.DateField()
+    fecha_Limite=models.DateField(blank=True, null=True)
     corte=models.CharField(max_length=100)
     nota=models.CharField(max_length=100)
     porcentaje=models.CharField(max_length=100)

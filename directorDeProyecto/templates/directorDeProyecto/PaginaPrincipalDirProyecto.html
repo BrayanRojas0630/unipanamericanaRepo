@@ -41,9 +41,10 @@
 		</li>
 		<li><a href="#"><i class="icono izquierda fa fa-check" aria-hidden="true"></i></i>Actividades<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
 			<ul>
-				<li><a href="crearActividad">Crear Actividad</a></li>
-				<li><a href="editarActividad">Editar Actividad</a></li>
-				<li><a href="eliminarActividad">Eliminar Actividad</a></li>
+				<li><a href="{% url "crearActividadCal" %}">Crear Actividad Calificable</a></li>
+				<li><a href="{% url "crearActividadNoCal" %}">Crear No Actividad Calificable</a></li>
+				<li><a href="{% url "editarActividad" %}">Editar Actividad</a></li>
+				<li><a href="{% url "eliminarActividad" %}">Eliminar Actividad</a></li>
 			</ul>
 		</li>
 	</ul>

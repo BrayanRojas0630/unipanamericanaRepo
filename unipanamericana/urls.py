@@ -20,7 +20,7 @@ urlpatterns = [
     url(r'', include('usuario.urls')),# un usuario que llega, no importa si esta logeado o no  es un usuario
     url(r'^admin/', admin.site.urls),
     url(r'^administrador/', include('administrador.urls')),
-  #  url(r'^directorDeProyecto/', include('directorDeProyecto.urls')),
+    url(r'^directorDeProyecto/', include('directorDeProyecto.urls')),
   #url(r'^estudiante/', include('estudiante.urls')),
   
     

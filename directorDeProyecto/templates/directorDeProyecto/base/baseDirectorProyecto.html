@@ -25,7 +25,9 @@
 	<div class="wrapper">
 		<div class="logo"><img src="{% static 'logoUnipanamericana/logo Universidad.png' %}"></div>
 		<div class="titulo"><h3>Director de Proyecto</h3></div>
+			
 			<nav class="navBar">
+				Director: {{user.username}}
 				<a href="{% url "paginaPrincipalDirProyecto" %}" id="botonIngresar"><i class="fa fa-home" aria-hidden="true"></i>Pagina Principal</a>
 			</nav>
 		</div>

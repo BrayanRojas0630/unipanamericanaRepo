@@ -1,0 +1,79 @@
+{% extends 'directorDeProyecto/base/baseDirectorProyecto.html' %}
+{% load staticfiles %}
+{% block title %}Crear Actividad No Calificable{% endblock %}
+{% block extraLinks %}
+<link rel="stylesheet" href="{% static 'css/EstilosCrearProyecto.css' %}">
+{% endblock %}
+{% block contend %}
+<div class="formulario">
+	<fieldset>
+		<legend>Crear Actividad NO Calificable</legend>
+		<form class="form-horizontal" method="post" enctype="multipart/form-data">{% csrf_token %}
+		{{ form.as_p}}
+			<div class="formIzq">
+				    <div class="form-group">
+				      <label for="nombreActividad" class="col-lg-2 control-label labels">Nombre Actividad</label>
+				        <input type="text" class="form-control inputs" id="nombreActividad" name="nombreActividad" placeholder="Actividad">
+				    </div>
+				    <div class="form-group">
+				      <label for="descripcion"> Descripcion Actividad</label>
+				        <textarea class="form-control" rows="3" id="descripcion" name="descripcion"></textarea>
+				    </div>
+				    
+				    <div class="form-group">
+				      <label for="documentoAdjunto" class="col-lg-2 control-label labels">Adjunto</label>
+				        <input type="file" class="form-control inputs" id="documentoAdjunto" name="documentoAdjunto" placeholder="Adjunto">
+				    </div>
+			</div>
+			<div class="formDer">
+				   
+				    <div class="form-group">
+				      <label for="idProyecto" class="col-lg-2 control-label labels">Proyecto:</label>
+				        <select class="form-control inputs" id="idProyecto" name="idProyecto">
+				        	{% if listaProyectos %}
+				    		{% for proyectos in listaProyectos %}
+				    		<option value="{{proyectos.id}}">{{ proyectos.nombreMacroProyecto}}</option>
+				    		{% endfor %}
+				    		{% else %}
+				    		<option>No tienes proyectos</option>
+				    		{% endif %}
+				    	</select>
+				    </div>
+
+				   <div class="form-group">
+				      <label for="corte" class="col-lg-2 control-label labels">Corte</label>
+				        <input type="text" class="form-control inputs" id="corte" name="corte" placeholder="Corte">
+				    </div>
+				    
+				    <div class="form-group">
+				      <label for="tipo_actividad" class="col-lg-2 control-label labels">Tipo Actividad</label>
+				        <input type="text" class="form-control inputs" id="tipo_actividad" name="tipo_actividad" placeholder="Tipo Actividad">
+				    </div>
+				    
+				     <div class="form-group">
+				      <label for="estado" class="col-lg-2 control-label labels">Estado</label>
+				        <input type="text" class="form-control inputs" id="estado" name="estado" placeholder="Estado">
+				    </div>
+				    
+				    <div class="form-group">
+				      <label for="observaciones" class="col-lg-2 control-label labels">Observaciones</label>
+				        <input type="text" class="form-control inputs" id="observaciones" name="observaciones" placeholder="Observaciones">
+				    </div>
+				    
+				    
+			<div class="form-group">
+			      <div class="col-lg-10 col-lg-offset-5">
+			      {% if message %}
+					<b>{{ message }}</b>
+					{% endif %}
+			      {% if listaProyectos %}
+			        <button type="submit" class="btn btn-primary">Crear Actividad</button>
+			       {% else %} 
+			        <button type="submit" class="btn btn-primary" disabled>Crear Actividad</button>
+			        {% endif %} 
+			      </div>
+			    </div>
+		</form>
+	</fieldset>
+</div>
+{% endblock %}

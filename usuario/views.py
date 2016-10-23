@@ -24,13 +24,15 @@ def index_view(request):
                     usuario = User.objects.get(username=request.POST['user'])
                     perfil=Perfil.objects.get(fk_authUser=usuario.pk)
                     if perfil.rol=="Administrador":
-                       
+                        request.session['id']=usuario.pk
                         return redirect('inicioAdmin')
                     else:
                         if perfil.rol=="Director de Proyecto":
+                            request.session['id']=usuario.pk
                             return redirect('inicioDP')
                         else:
                             if perfil.rol=="Estudiante":
+                                request.session['id']=usuario.pk
                                 return redirect('inicioEstudiante')
                 else:
                     message="Tu usuario esta inactivo"
