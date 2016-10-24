@@ -21,7 +21,7 @@
 	margin-right: 10px;
 }
 #formLogin{
-	background: #FA8253;
+	background: #f09609;
 	position: absolute;
 	top: 20%;
 	left: 28%;
@@ -54,8 +54,8 @@
 }
 
 .alert.alert-dismissible.alert-danger.alerta{
-	background: #FA8253;
-	color: #000;
+	background: #f09609;
+	color: #fff;
 	position: absolute;
 	left: 30%;
 	top: 20%;

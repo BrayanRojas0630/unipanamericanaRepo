@@ -1,10 +1,10 @@
 from django.shortcuts import render, render_to_response, redirect
 from django.template.context import RequestContext
 from django.contrib.auth.decorators import login_required
-#from .models import Proyecto, Tipo_Proyecto, Grupo_De_Investigacion, Linea_Investigacion,Fuente_de_Financiacion,Maximo_Nivel_Educativo,tipo_Participacion_Proyecto, Nucleo_Basico_Conocimiento,Red_de_Coperacion
+from .models import Proyecto, Tipo_Proyecto, Grupo_De_Investigacion, Linea_Investigacion,Fuente_de_Financiacion,Maximo_Nivel_Educativo,tipo_Participacion_Proyecto, Nucleo_Basico_Conocimiento,Red_de_Coperacion
 from django.contrib.auth.models import User
-#from usuario.models import Perfil 
-#from estudiante.models import Estudiante, Sede,Facultad,Ciclo,Programa
+from usuario.models import Perfil 
+from estudiante.models import Sede,Facultad,Ciclo,Programa
 
 @login_required
 def inicio(request):
