@@ -81,18 +81,36 @@ class Red_de_Coperacion(models.Model):
 class Empresa(models.Model):
     nombre=models.CharField(max_length=100, primary_key=True)
     Descripcion=models.CharField(max_length=100)
-    
+
+    def __str__(self):
+        return self.nombre
     
     
 class Sublinea(models.Model):
     nombre=models.CharField(max_length=100, primary_key=True)
     Descripcion=models.CharField(max_length=100)
-        
+
+    def __str__(self):
+        return self.nombre    
     
 class MacroProyecto(models.Model):
     nombre=models.CharField(max_length=100, primary_key=True)
     descripcion=models.TextField()
 
+    def __str__(self):
+        return self.nombre
+
+class Jurado(models.Model):
+    nombre=models.CharField(max_length=100)
+    areaConocimiento=models.CharField(max_length=100)
+    correo=models.CharField(max_length=100)
+    celular=models.CharField(max_length=100)
+    
+class Sustentacion(models.Model):
+    nombreJurados=models.ForeignKey(Jurado,on_delete=models.CASCADE)
+    fecha=models.CharField(max_length=100)
+    salon=models.CharField(max_length=100)
+    
     
 class Proyecto(models.Model):
     codigo_IES=models.CharField(max_length=100, blank=True, null=True)
@@ -138,7 +156,8 @@ class Proyecto(models.Model):
     sublinea=models.ForeignKey(Sublinea, blank=True, null=True, on_delete=models.CASCADE)
     empresa=models.ForeignKey(Empresa, blank=True, null=True, on_delete=models.CASCADE)
     nombreMacroProyecto=models.ForeignKey(MacroProyecto, blank=True, null=True, on_delete=models.CASCADE)
-    
+    jurado=models.ForeignKey(Jurado, blank=True, null=True, on_delete=models.CASCADE)
+    Sustentacion=models.ForeignKey(Sustentacion, blank=True, null=True, on_delete=models.CASCADE)
     
     
     
@@ -156,16 +175,3 @@ class Producto_de_Investigacion(models.Model):
     
     def __str__(self):
         return self.nombre
-    
-    
-class Jurado(models.Model):
-    nombre=models.CharField(max_length=100)
-    areaConocimiento=models.CharField(max_length=100)
-    correo=models.CharField(max_length=100)
-    celular=models.CharField(max_length=100)
-    
-class Sustentacion(models.Model):
-    nombreJurados=models.ForeignKey(Jurado,on_delete=models.CASCADE)
-    fecha=models.CharField(max_length=100)
-    salon=models.CharField(max_length=100)
-    
