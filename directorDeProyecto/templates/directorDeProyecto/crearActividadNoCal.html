@@ -1,23 +1,19 @@
 {% extends 'directorDeProyecto/base/baseDirectorProyecto.html' %}
 {% load staticfiles %}
-{% block title %}Crear Actividad Calificable{% endblock %}
+{% block title %}Crear Actividad No Calificable{% endblock %}
 {% block extraLinks %}
 <link rel="stylesheet" href="{% static 'css/EstilosCrearProyecto.css' %}">
 {% endblock %}
 {% block contend %}
 <div class="formulario">
 	<fieldset>
-		<legend>Crear Actividad Calificable</legend>
+		<legend>Crear Actividad NO Calificable</legend>
 		<form class="form-horizontal" method="post" enctype="multipart/form-data">{% csrf_token %}
 		{{ form.as_p}}
 			<div class="formIzq">
 				    <div class="form-group">
 				      <label for="nombreActividad" class="col-lg-2 control-label labels">Nombre Actividad</label>
 				        <input type="text" class="form-control inputs" id="nombreActividad" name="nombreActividad" placeholder="Actividad">
-				    </div>
-				    <div class="form-group">
-				      <label for="fechaLimite" class="col-lg-2 control-label">Fecha Limite</label>
-				        <input type="date" class="form-control" id="fechaLimite" name="fechaLimite">
 				    </div>
 				    <div class="form-group">
 				      <label for="descripcion"> Descripcion Actividad</label>
@@ -47,16 +43,6 @@
 				   <div class="form-group">
 				      <label for="corte" class="col-lg-2 control-label labels">Corte</label>
 				        <input type="text" class="form-control inputs" id="corte" name="corte" placeholder="Corte">
-				    </div>
-				    
-				<div class="form-group">
-				      <label for="nota" class="col-lg-2 control-label labels">Nota</label>
-				        <input type="text" class="form-control inputs" id="nota" name="nota" placeholder="Nota">
-				    </div>
-				    
-				    <div class="form-group">
-				      <label for="porcentaje" class="col-lg-2 control-label labels">Porcentaje</label>
-				        <input type="text" class="form-control inputs" id="porcentaje" name="porcentaje" placeholder="Porcentaje">
 				    </div>
 				    
 				    <div class="form-group">
