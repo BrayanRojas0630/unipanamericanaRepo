@@ -175,3 +175,21 @@ class Producto_de_Investigacion(models.Model):
     
     def __str__(self):
         return self.nombre
+<<<<<<< Updated upstream
+=======
+    
+    
+class Jurado(models.Model):
+    nombre=models.CharField(max_length=100)
+    areaConocimiento=models.CharField(max_length=100)
+    correo=models.CharField(max_length=100)
+    celular=models.CharField(max_length=100)
+    
+    
+    
+class Sustentacion(models.Model):
+    nombreJurados=models.ForeignKey(Jurado,on_delete=models.CASCADE)
+    fecha=models.CharField(max_length=100)
+    salon=models.CharField(max_length=100)
+    
+>>>>>>> Stashed changes

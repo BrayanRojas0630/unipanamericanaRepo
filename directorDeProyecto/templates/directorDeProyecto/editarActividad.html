@@ -37,11 +37,11 @@
 				    </div>
 				    <div class="form-group">
 				      <label for="fechaLimite" class="col-lg-2 control-label labels">Fecha Limite</label>
-				        <input type="date" class="form-control inputs" id="fechaLimite" name="fechaLimite" >
+				        <input type="date" class="form-control inputs" id="fechaLimite" name="fechaLimite" required>
 				    </div>
 				    <div class="form-group">
 				      <label for="descripcion" class="col-lg-2 control-label labels">Descripcion Actividad</label>
-				        <textarea class="form-control inputs" rows="3" id="descripcion" name="descripcion" required></textarea>
+				        <textarea class="form-control inputs" rows="5" id="descripcion" name="descripcion" required></textarea>
 				    </div>
 				    
 				    <div class="form-group">
@@ -49,18 +49,9 @@
 				        <input type="text" class="form-control inputs" id="observaciones" name="observaciones" placeholder="Observaciones">
 				    </div>
 				    
-				     <div class="form-group">
-				      <label for="estado" class="col-lg-2 control-label labels">Estado</label>
-				        <input type="text" class="form-control inputs" id="estado" name="estado" placeholder="Estado">
-				    </div>
+				    
 			</div>
 			<div class="formDer">
-				    <div class="form-group">
-				      <label for="Nota" class="col-lg-2 control-label labels">Nota:</label>
-				        <input type="text" class="form-control inputs" id="nota" name="nota" placeholder="Nota">
-				    </div>
-				    
-				    
 				    {% if listaProyectos %}
 				    {% for proyectos in listaProyectos %}
 				    <div class="form-group">
@@ -86,23 +77,37 @@
 				    
 				    <div class="form-group">
 				      <label for="corte" class="col-lg-2 control-label labels">Corte</label>
-				        <input type="text" class="form-control inputs" id="corte" name="corte" placeholder="Corte">
+				        <select class="form-control inputs" id="corte" name="corte" required>
+				    		<option value="">---</option>
+				    		<option value="1">Primero</option>
+				    		<option value="2">Segundo</option>
+				    		<option value="3">Tercero</option>
+				    	</select>
+				    </div>
+
+				    <div class="form-group">
+				      <label for="estado" class="col-lg-2 control-label labels">Estado</label>
+				        <select class="form-control inputs" id="estado" name="estado" required>
+				        	<option value="">---</option>
+				    		<option value="Activa">Actividad Activa</option>
+				    		<option value="Inactiva">Actividad Inactiva</option>
+				    	</select>
+				    </div>
+				    <div class="form-group">
+				    <label for="tipo_actividad" class="col-lg-2 control-label labels">Tipo Actividad</label>
+				        <select class="form-control inputs" id="tipo_actividad" name="tipo_actividad" required>
+				        	<option value="">---</option>
+				    		<option value="Calificable">Actividad Calificable</option>
+				    		<option value="No Calificable">Actividad No Calificable</option>
+				    	</select>
 				    </div>
 				    
-				<div class="form-group">
-				      <label for="nota" class="col-lg-2 control-label labels">Nota</label>
-				        <input type="text" class="form-control inputs" id="nota" name="nota" placeholder="Nota">
-				    </div>
-				    
+				    				    
 				    <div class="form-group">
 				      <label for="porcentaje" class="col-lg-2 control-label labels">Porcentaje</label>
-				        <input type="text" class="form-control inputs" id="porcentaje" name="porcentaje" placeholder="Porcentaje">
+				        <input type="text" class="form-control inputs" id="porcentaje" name="porcentaje" placeholder="Porcentaje" required>
 				    </div>
 				    
-				    <div class="form-group">
-				      <label for="tipo_actividad" class="col-lg-2 control-label labels">Tipo Actividad</label>
-				        <input type="text" class="form-control inputs" id="tipo_actividad" name="tipo_actividad" placeholder="Tipo Actividad">
-				    </div>
 
 				
 			</div>

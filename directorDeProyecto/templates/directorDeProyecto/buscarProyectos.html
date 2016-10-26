@@ -1,0 +1,219 @@
+{% extends 'directorDeProyecto/base/baseDirectorProyecto.html' %}
+{% load staticfiles %}
+{% block title %}Buscar Proyecto{% endblock %}
+{% block extraLinks %}
+<link rel="stylesheet" href="{% static 'css/EstilosBuscarProyecto.css' %}">
+{% endblock %}
+{% block contend %}
+<div class="formulario">
+	<fieldset>
+		<legend>Buscar Proyecto</legend>
+		<form class="form-horizontal" method="post" enctype="multipart/form-data">{% csrf_token %}
+		{{ form.as_p}}
+			<div class="formIzq">
+				{% if listaUsuario %}
+			    <div class="form-group">
+					<label for="buscarProyecto" class="col-lg-2 control-label labels">Proyecto:</label>
+					<select class="form-control inputs" id="buscarProyecto" name="buscarProyecto">
+					{% for proyectoUsuario in listaUsuario %}
+			        	<option value="{{proyectoUsuario.id}}">{{proyectoUsuario.nombre_IES}}</option>
+			        {% endfor%}
+			        </select>
+			    </div>
+			    {% else %}
+			    <div class="form-group has-error">
+					<label for="Sede" class="col-lg-2 control-label labels">Sede:</label>
+					<select class="form-control inputs" id="buscarProyecto" name="buscarProyecto">
+			        	<option class="">No hay Proyectos Registradas</option>
+					</select>
+			    </div>
+			    {% endif %}
+				    
+			</div>
+			{% if listaUsuario %}
+			<div class="form-group">
+			      <div class="col-lg-10 col-lg-offset-5">
+			        <button type="submit" class="btn btn-primary">Buscar</button>
+			      </div>
+			    </div>
+			{% else %}
+			<div class="form-group">
+			      <div class="col-lg-10 col-lg-offset-5">
+			        <button type="submit" class="btn btn-primary" disabled>Buscar</button>
+			      </div>
+			    </div>
+			{% endif %}
+		</form>
+	</fieldset>
+</div>
+
+{% if listaProyecto %}
+<div class="divIzq">
+	<img src="{% static 'logoUnipanamericana/birrete.png' %}" alt="" class="imagen">
+</div>
+<div class="divDer">
+
+
+	<table class="table table-striped table-hover">
+	<tr>
+		<td><strong>Codigo_IES: </strong></td>
+		<td>{{listaProyecto.codigo_IES}}</td>
+	</tr>
+	<tr>
+		<td><strong>Nombre Macroproyecto</strong></td>
+		<td>{{macro.nombre}}</td>
+	</tr>
+	<tr>
+		<td><strong>Nombre IES</strong></td>
+		<td>{{listaProyecto.nombre_IES}}</td>
+	</tr>
+	<tr>
+		<td><strong>Año</strong></td>
+		<td>{{listaProyecto.ano}}</td>
+	</tr>
+	<tr>
+		<td><strong>Semestre</strong></td>
+		<td>{{listaProyecto.semestre}}</td>>
+	</tr>
+	<tr>
+		<td><strong>Titulo</strong></td>
+		<td>{{listaProyecto.titulo}}</td>
+	</tr>
+	<tr>
+		<td><strong>Fecha Inicio</strong></td>
+		<td>{{listaProyecto.fecha_inicio}}</td>
+	</tr>
+	<tr>
+		<td><strong>Duracion</strong></td>
+		<td>{{listaProyecto.duracion}}</td>
+	</tr>
+	<tr>
+		<td><strong>Objetivo SocioEconomico</strong></td>
+		<td>{{listaProyecto.objetivo_socioeconomico}}</td>
+	</tr>
+	<tr>
+		<td><strong>Objetivo Proyecto</strong></td>
+		<td>{{listaProyecto.objetivo_proyecto}}</td>
+	</tr>
+	<tr>
+		<td><strong>Resumen</strong></td>
+			<td>{{listaProyecto.resumen_proyecto}}</td>
+	</tr>
+	<tr>
+		<td><strong>Resultados Esperados</strong></td>
+		<td>{{listaProyecto.resultados_esperados}}</td>
+	</tr>
+	<tr>
+			<td><strong>Sede</strong></td>
+			<td>{{listaProyecto.sede}}</td>
+	</tr>
+	<tr>
+		<td><strong>Nombre Materia</strong></td>
+		<td>{{listaProyecto.nombre_materia}}</td>
+	</tr>
+	<tr>
+		<td><strong>Codigo Materia</strong></td>
+		<td>{{listaProyecto.codigo_materia}}</td>
+	</tr>
+	<tr>
+		<td><strong>Grupo Materia</strong></td>
+		<td>{{listaProyecto.grupo_materia}}</td>
+	</tr>
+	<tr>
+		<td><strong>Horas Asignadas</strong></td>
+			<td>{{listaProyecto.horas_asignadas_docente}}</td>
+	</tr>
+	<tr>
+		<td><strong>Gasto Total</strong></td>
+		<td>{{listaProyecto.gasto_total}}</td>
+	</tr>
+	<tr>
+		<td><strong>Tipo De Gasto</strong></td>
+			<td>{{listaProyecto.tipo_De_gasto}}</td>
+	</tr>
+	<tr>
+		<td><strong>Valor Semana</strong></td>
+		<td>{{listaProyecto.valor_semana}}</td>
+	</tr>
+	<tr>
+		<td><strong>SubLinea</strong></td>
+			<td>{{sublinea.nombre}}</td>
+	</tr>
+	<tr>
+		<td><strong>Empresa</strong></td>
+			<td>{{empresa.nombre}}</td>
+	</tr>
+	<tr>
+		<td><strong>Nombre Jurados</strong></td>
+			<td>{{listaProyecto.nombreJurados}}</td>
+	</tr>
+	<tr>
+		<td><strong>Perfiles</strong></td>
+		<td>{{listaProyecto.perfiles}}</td>
+	</tr>
+	<tr>
+		<td><strong>valor</strong></td>
+			<td>{{listaProyecto.valor}}</td>
+	</tr>
+	<tr>
+		<td><strong>Sustentacion Publica</strong></td>
+			<td>{{listaProyecto.realizo_Sustentacion_publica}}</td>
+	</tr>
+	<tr>
+		<td><strong>Entidades Participantes</strong></td>
+		<td>{{listaProyecto.otras_entidades_Participantes}}</td>
+	</tr>
+	<tr>
+		<td><strong>Area De Conocimiento</strong></td>
+		<td>{{listaProyecto.asociado_al_area_de_conocimiento}}</td>
+	</tr>
+	<tr>
+		<td><strong>Finalizado</strong></td>
+		<td>{{listaProyecto.finalizado}}</td>
+	</tr>
+	<tr>
+		<td><strong>Paz Y Salvo</strong></td>
+		<td>{{listaProyecto.paz_y_salvo}}</td>
+	</tr>
+	<tr>
+		<td><strong>Modalidad Seminario</strong></td>
+		<td>{{listaProyecto.modalidad_de_seminario}}</td>
+	</tr>
+	<tr>
+		<td><strong>Fuente Financiacion</strong></td>
+		<td>{{listaProyecto.Fuente_de_financiacion}}</td>
+	</tr>
+	<tr>
+		<td><strong>NBC</strong></td>
+		<td>{{listaProyecto.NBC}}</td>
+	</tr>
+		<td><strong>Director</strong></td>
+			<td>{{listaProyecto.directorDeProyecto}}</td>
+	<tr>
+		<td><strong>Grupo Investigacion</strong></td>
+			<td>{{listaProyecto.idGrupo_investigacion}}</td>
+	</tr>
+		<td><strong>Lineas Investigacion</strong></td>
+			<td>{{listaProyecto.id_lineas_investigacion_asociadas}}</td>
+	<tr>
+		<td><strong>Maximo Nivel educativo</strong></td>
+			<td>{{listaProyecto.maximo_nivel_educativo}}</td>
+	</tr>
+
+	<tr>
+		<td><strong>Red Investigacion</strong></td>
+			<td>{{listaProyecto.red_investigacion}}</td>
+	</tr>
+	<tr>
+		<td><strong>Participacion Proyecto</strong></td>
+			<td>{{listaProyecto.tipo_participacion_proyecto}}</td>
+	</tr>
+	<tr>
+		<td><strong>Tipo Proyecto</strong></td>
+			<td>{{listaProyecto.tipo_proyecto}}</td>
+	</tr>
+	
+</table>
+</div>
+	{% endif %}
+{% endblock %}
