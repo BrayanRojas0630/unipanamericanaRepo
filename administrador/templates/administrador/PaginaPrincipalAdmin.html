@@ -30,16 +30,16 @@
 	<ul class="menu">
 		<li><a href="#"><i class="icono izquierda fa fa-user-plus" aria-hidden="true"></i>Registrar Usuario<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
 			<ul>
-				<li><a href="PaginaPrincipalAdmin/registrarUsuarios">Registrar Usuarios</a></li>
-				<li><a href="PaginaPrincipalAdmin/listaUsuarios">Listar Usuarios</a></li>
+				<li><a href="{% url "registrarUsuarios" %}">Registrar Usuarios</a></li>
+				<li><a href="{% url "listaUsuarios" %}">Listar Usuarios</a></li>
 				<li><a href="PaginaPrincipalAdmin/editarUsuarios">Editar Usuarios</a></li>
 				<li><a href="PaginaPrincipalAdmin/eliminarUsuarios/">Eliminar Usuarios</a></li>
 
 			</ul>
 		</li>
-		<li><a href="#"><i class="icono izquierda fa fa-plus" aria-hidden="true"></i>Registrar informacion<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
+		<li><a href="#"><i class="icono izquierda fa fa-plus" aria-hidden="true"></i>Registrar Noticias<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
 			<ul>
-				<li><a href="PaginaPrincipalAdmin/registrarInformacion">Crear Informacion</a></li>
+				<li><a href="{% url "registrarNoticias" %}">Crear Informacion</a></li>
 				<!-- <li><a href="#">Modificar Informacion</a></li> -->
 				<!-- <li><a href="#">Eliminar Informacion</a></li> -->
 			</ul>

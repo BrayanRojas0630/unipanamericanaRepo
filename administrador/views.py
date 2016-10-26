@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from usuario.models import Perfil 
 from estudiante.models import Sede,Facultad,Ciclo,Programa
 
+
 @login_required
 def inicio(request):
     return render(request,'administrador/PaginaPrincipalAdmin.html')
@@ -98,3 +99,80 @@ def agregarEstudiante(request):
         contexto = {'listProyectos':proyectos, 'listSedes':sedes, 'listFacultad':facultad, 'listCiclos':ciclos, 'listProgramas':programas}
         return render(request,'administrador/AgregarEstudiante.html',contexto)
     return None
+
+
+
+@login_required
+def registrarUsuario_view(request):
+    if request.method == "POST":
+        
+        
+        perfil=Perfil()
+      
+        try:
+            nombreusuario = request.POST['usuario']
+            email=request.POST['mail']
+            password = request.POST['password']
+
+            user = User.objects.create_user(username=nombreusuario,
+                                            email=email,
+                                            password=password)
+
+            user.is_staff = True
+            user.save()
+           
+
+            nameuser =User.objects.filter(username=request.POST['usuario'])
+            usuario1 = User.objects.get(pk=nameuser[0].id)
+            perfil.fk_authUser=usuario1 
+            perfil.nombre= request.POST['nombre']
+            perfil.apellido= request.POST['apellido']
+            perfil.documento= request.POST['documento']
+            perfil.telefono= request.POST['telefono']
+            perfil.celular= request.POST['celular']
+            perfil.mail_institucional= request.POST['mail_institucional']
+            perfil.facultad= request.POST['facultad']
+            perfil.nro_Proyectos_a_Cargo= request.POST['nro_proyectos_a_cargo']
+            perfil.rol=request.POST['rol']
+            perfil.save()
+            return render(request,"administrador/PaginaPrincipalAdmin.html")   
+        except KeyError:
+            datosUser=KeyError
+            context={'datosUser':datosUser}
+            return render(request,"administrador/PaginaPrincipalAdmin.html")
+    else:
+        return render(request,'administrador/registrarUsuarios.html')
+
+
+@login_required
+def listaUsuarios_view(request):
+    usuarios= Perfil.objects.all() 
+    user = User.objects.all()   
+    contexto = {'listUsuarios':usuarios, 'listUser':user}
+    return render(request,'administrador/listaUsuarios.html', contexto)
+
+    
+
+@login_required
+def registrarNoticias_view(request):
+    usuario=Perfil.objects.filter(fk_authUser=request.session["usermane"])
+    if request.method == "POST":
+        noticiaNew=Noticia()
+        try:
+            noticiaNew.titulo=request.POST['titulo']
+            noticiaNew.contenido=request.POST['contenido']
+            noticiaNew.fecha_Publicacion=request.POST['fecha_Publicacion']
+            userNoticia=Perfil.objects.get(fk_authUser=request.session['fk_authUser'])
+            noticiaNew.idPropietario=userNoticia
+            noticiaNew.save()
+            return render(request,"administrador/PaginaPrincipalAdmin.html") 
+        except KeyError:
+            datosUser=KeyError
+            context={'datosUser':datosUser}
+            return render(request,"administrador/PaginaPrincipalAdmin.html")
+    else:
+        context={'listUsuario':usuario}
+        return render(request,'administrador/registrarInformacion.html',context)
+
+
+

@@ -1,0 +1,16 @@
+{% extends 'administrador/base/baseAdmin.html' %}
+{% load staticfiles %}
+{% block title %}Registrar Informacion{% endblock %}
+{% block extraLinks %}
+<link rel="stylesheet" href="{% static 'css/EstilosCrearProyecto.css' %}">
+{% endblock %}
+{% block contend %}
+
+<form method="POST">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<button type="submit">Guardar</button>
+
+</form>
+{% endblock %}
+

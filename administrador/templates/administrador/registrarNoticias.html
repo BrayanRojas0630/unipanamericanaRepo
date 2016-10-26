@@ -1,0 +1,64 @@
+{% extends 'administrador/base/baseAdmin.html' %}
+{% load staticfiles %}
+{% block title %}Registrar Informacion{% endblock %}
+{% block extraLinks %}
+<link rel="stylesheet" href="{% static 'css/EstilosCrearProyecto.css' %}">
+{% endblock %}
+{% block contend %}
+<div class="formulario">
+	<fieldset>
+		<legend>Registrar Noticias</legend>
+		<form class="form-horizontal" method="post" enctype="multipart/form-data">{% csrf_token %}
+		{{ form.as_p}}
+			<div class="formIzq">
+				    <div class="form-group">
+				      <label for="titulo" class="col-lg-2 control-label labels">Titulo</label>
+				      <input type="text" class="form-control inputs" id="titulo" name="titulo" placeholder="titulo noticia" required>
+					</div>
+				    <div class="form-group">
+				      <label for="fecha_Publicacion" class="col-lg-2 control-label labels">Fecha de Publicación</label>
+				      
+				        <input type="date" class="form-control inputs" id="fecha_Publicacion" name="fecha_Publicacion" required>
+				      
+				    </div>
+				   <div class="form-group">
+				      <label for="adjunto" class="col-lg-2 control-label labels">Adjuntar imagen</label>
+				        <input type="file" name="adjunto" class="form-control inputs" id="adjunto" name="adjunto" placeholder="Adjuntar Archivo" required>
+				    </div>
+				    {% if listUsuario %}
+				    <div class="form-group">
+			      <div class="col-lg-10 col-lg-offset-5">
+			        <button type="submit" class="btn btn-primary">Crear Noticia</button>
+			      </div>
+			    </div>
+			    {% else %}
+			    <div class="form-group">
+			      <div class="col-lg-10 col-lg-offset-5">
+			        <button type="submit" class="btn btn-primary" disabled>Crear Noticia</button>
+			      </div>
+			    </div>
+			    {% endif %}
+    </div>
+    <div class="formDer">
+    	<div class="form-group">
+                    	<label for="contenido" class="col-lg-2 control-label labels">Contenido</label>
+						<textarea name="contenido" class="form-control inputs" rows="5" cols="20" required></textarea>  
+				    </div>
+				    {% if listUsuario %}
+				    {% for usuario in listUsuario %}
+		<div class="form-group">
+				      <label for="idPropietario" class="col-lg-2 control-label labels">Propietario:</label>
+				        <input type="text" class="form-control inputs" id="idPropietario" name="idPropietario" value="{{usuario.usuario}}" disabled>
+				    </div>
+				    {% endfor %}
+				    {% else %}
+				    <div class="form-group has_error">
+				      <label for="idPropietario" class="col-lg-2 control-label labels">Propietario:</label>
+				        <input type="text" class="form-control inputs" id="idPropietario" name="idPropietario" value="Usuario No Identificado" disabled>
+				    </div>
+				    {% endif %}
+    </div>
+		</form>
+	</fieldset>
+</div>
+{% endblock %}
