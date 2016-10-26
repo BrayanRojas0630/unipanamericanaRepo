@@ -1,0 +1,59 @@
+{% extends 'directorDeProyecto/base/baseDirectorProyecto.html' %}
+{% load staticfiles %}
+{% block title %}Elegir Proyecto{% endblock %}
+{% block extraLinks %}
+<link rel="stylesheet" href="{% static 'css/EstilosCrearProyecto.css' %}">
+{% endblock %}
+{% block contend %}
+<div class="formulario">
+	<fieldset>
+		<legend>Elegir Proyecto</legend>
+			
+
+				<table class="table table-striped table-hover">
+					<tr>
+						<td><strong>Codigo_IES: </strong></td>
+						<td><strong>nombre_IES</strong></td>
+						<td><strong>Nombre Macroproyecto</strong></td>
+						<td><strong>Titulo</strong></td>
+						<td><strong>Resumen</strong></td>
+						<td><strong>Sede</strong></td>
+						<td><strong>Finalizado</strong></td>
+					</tr>
+				{% if listaProyectos %}
+				{% for proyectos in listaProyectos %}
+			        	<tr>
+						<td>{{proyectos.codigo_IES}}</td>
+						<td><a href="{{proyectos.id}}/editarProyecto">{{proyectos.nombre_IES}}</a></td>
+						<td>{{proyectos.nombreMacroProyecto}}</td>
+						<td>{{proyectos.titulo}}</td>
+						<td>{{proyectos.resumen_proyecto}}</td>
+						<td>{{proyectos.sede}}</td>
+						<td>{{proyectos.finalizado}}</td>
+					</tr>
+			        {% endfor%}	
+	
+				</table>
+
+				{% else %}
+				<div class="form-group has-error">
+					      <label for="idProyecto" class="col-lg-2 control-label labels">Proyecto a Elegir</label>
+					       <select class="form-control inputs" id="idProyecto" name="idProyecto">
+					    		<option>No tienes Proyectos</option>
+					    	</select>
+					    </div>
+				{% endif %}
+				</div>
+
+				<div class="form-group">
+			      <div class="col-lg-10 col-lg-offset-5">
+			      {% if listaProyectos %}
+			        <button type="submit" class="btn btn-primary">Elegir</button>
+			      {% else %}
+			        <button type="submit" class="btn btn-primary" disabled>Elegir</button>
+			      {% endif%}
+			      </div>
+			    </div>
+	</fieldset>
+</div>
+{% endblock %}

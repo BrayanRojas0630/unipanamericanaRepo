@@ -7,7 +7,10 @@ urlpatterns = [
     url(r'crearActividad/$',views.crearActividad,name='crearActividad'),
     url(r'editarActividad/$',views.editarActividad,name='editarActividad'),
     url(r'eliminarActividad/$',views.eliminarActividad,name='eliminarActividad'),
-   url(r'buscarProyecto/$',views.buscarProyecto,name='buscarProyecto'),
+    url(r'buscarProyecto/$',views.buscarProyecto,name='buscarProyecto'),
+    url(r'(?P<proyecto_id>[0-9]+)/editarProyecto$',views.editarProyectoDP,name='editarProyecto'),
+    url(r'proyectosAsignados/$',views.proyectosAsignados,name='proyectosAsignados'),
+     
    
     
     
