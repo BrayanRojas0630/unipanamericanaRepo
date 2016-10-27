@@ -11,7 +11,9 @@ urlpatterns = [
     url(r'registrarNoticias/$', views.registrarNoticias_view, name='registrarNoticias'),
     url(r'mostrarUsuario/$', views.mostrarUsuarios_view, name='mostrarUsuario'),
     url(r'(?P<usuario_id>[0-9]+)/editarUsuarios$',views.editarUsuario_view,name='editarUsuarios'),
-    
+    url(r'mostrarProyectos/$', views.mostrarProyectos_a_editar_view, name='mostrarProyectos'),
+    url(r'(?P<id_proyecto>[0-9]+)/editarProyecto$',views.editarProyecto_view,name='editarProyecto'),
+    url(r'(?P<id_proyecto>[0-9]+)/eliminarProyecto$',views.eliminarProyecto_view,name='eliminarProyecto'),
     url(r'realizarConvocatoria/$', views.realizarConvocatoria_view, name='realizarConvocatoria'),
     url(r'(?P<proyecto_id>[0-9]+)/cargar_a_convocatoria', views.cargar_a_Convocatoria_view, name='cargar_a_convocatoria'),
 

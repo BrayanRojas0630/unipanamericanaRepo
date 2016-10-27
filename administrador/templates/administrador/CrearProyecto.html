@@ -58,10 +58,23 @@
 			      <label for="perfiles" class="col-lg-2 control-label labels">Perfiles:</label>
 			        <input type="text" class="form-control inputs" id="perfiles" name="perfiles" placeholder="Escribe Nombre de Perfiles" required>
 			    </div>
+			    {% if listNBC %}
 			    <div class="form-group">
-			      <label for="nombreJurados" class="col-lg-2 control-label labels">Nombre Jurados:</label>
-			        <input type="text" class="form-control inputs" id="nombreJurados" name="nombreJurados" placeholder="Escribe Nombre de Jurados seguida por una ," required>
+			      <label for="nbc" class="col-lg-2 control-label labels">NBC:</label>
+			        <select class="form-control inputs" id="nbc" name="nbc" required>
+					{% for nbc in listNBC %}
+			        	<option>{{nbc.area}}</option>
+			        {% endfor%}
+			        </select>
 			    </div>
+			    {% else %}
+			    <div class="form-group has-error">
+					<label for="nbc" class="col-lg-2 control-label labels">NBC:</label>
+					<select class="form-control inputs" id="nbc" name="nbc" required>
+			        	<option class="">No hay NBC'S Registrados</option>
+					</select>
+			    </div>
+			    {% endif %}
 			    
 			</div>
 			<div class="formDer">

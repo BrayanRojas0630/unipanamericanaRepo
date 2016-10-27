@@ -31,6 +31,9 @@ def crearProyecto(request):
             empresa2 = Empresa.objects.get(pk=empresa1[0].nombre)
             proyecto.empresa=empresa2
 
+            nbc1 =Nucleo_Basico_Conocimiento.objects.filter(area=request.POST['nbc'])
+            nbc2 = Nucleo_Basico_Conocimiento.objects.get(area=nbc1[0].area)
+            proyecto.NBC=nbc2
                 
 
             tipo_proyecto_copia=Tipo_Proyecto.objects.get(nombre=request.POST['producto'])
@@ -38,7 +41,7 @@ def crearProyecto(request):
             proyecto.perfiles=request.POST['perfiles']
             directorDeProyecto_copia=User.objects.get(pk=request.POST['nombreDirector'])
             proyecto.directorDeProyecto=directorDeProyecto_copia
-            proyecto.nombreJurados=request.POST['nombreJurados']
+           
             proyecto.save()
             return redirect('paginaPrincipalAdmin')
         except KeyError:
@@ -49,9 +52,10 @@ def crearProyecto(request):
         empresas = Empresa.objects.all()
         macroproyectos = MacroProyecto.objects.all()
         tipo_proyectos= Tipo_Proyecto.objects.all()
+        nbc = Nucleo_Basico_Conocimiento.objects.all()
         sublineas = Sublinea.objects.all()
         usuariosDirectores=Perfil.objects.filter(rol="Director de Proyecto")
-        context={'list_tipoProyectos':tipo_proyectos, 'listDirector':usuariosDirectores, 'listMacroProyecto':macroproyectos, 'listSublinea': sublineas, 'listEmpresa': empresas}
+        context={'list_tipoProyectos':tipo_proyectos, 'listDirector':usuariosDirectores, 'listMacroProyecto':macroproyectos, 'listSublinea': sublineas, 'listEmpresa': empresas , 'listNBC':nbc}
         return render(request,'administrador/CrearProyecto.html',context)
 
 
@@ -127,10 +131,14 @@ def registrarUsuario_view(request):
             nombreusuario = request.POST['usuario']
             email=request.POST['mail']
             password = request.POST['password']
+            firstName = request.POST['nombre']
+            lastName = request.POST['apellido']
 
             user = User.objects.create_user(username=nombreusuario,
                                             email=email,
-                                            password=password)
+                                            password=password,
+                                            first_name=firstName,
+                                            last_name=lastName)
 
             user.is_staff = True
             user.save()
@@ -279,3 +287,76 @@ def cargar_a_Convocatoria_view(request, proyecto_id):
         context={'proyectos':proyectos}
         return render(request,'administrador/editarEstado.html',context)
 
+@login_required
+def mostrarProyectos_a_editar_view(request):
+    proyectos=Proyecto.objects.all()
+    contexto = {'listProyectos':proyectos}
+    return render(request,'administrador/mostrarProyectos_a_editar.html',contexto)
+
+
+@login_required
+def editarProyecto_view(request, id_proyecto):
+    message=None
+    
+    proyectos=Proyecto.objects.get(pk=id_proyecto)
+    macroproyectos = MacroProyecto.objects.all()
+    sublineas = Sublinea.objects.all()
+    empresas = Empresa.objects.all()
+    nbc = Nucleo_Basico_Conocimiento.objects.all()
+    tipo_proyectos = Tipo_Proyecto.objects.all()
+    usuariosDirectores = Perfil.objects.all()
+
+    if request.method=="POST":
+        macroproyecto1 =MacroProyecto.objects.filter(nombre=request.POST['nombreMacroProyecto'])
+        macroproyecto2 =MacroProyecto.objects.get(pk=macroproyecto1[0].nombre)
+        proyectos.nombreMacroProyecto= macroproyecto2
+
+        tipoProyecto1 =Tipo_Proyecto.objects.filter(nombre=request.POST['producto'])
+        tipoProyecto2 =Tipo_Proyecto.objects.get(pk=tipoProyecto1[0].nombre)
+        proyectos.tipo_proyecto= tipoProyecto2 
+
+        empresa1 =Empresa.objects.filter(nombre=request.POST['empresa'])
+        empresa2 =Empresa.objects.get(pk=empresa1[0].nombre)
+        proyectos.empresa= empresa2
+
+        sublinea1 =Sublinea.objects.filter(nombre=request.POST['sublinea'])
+        sublinea2 =Sublinea.objects.get(pk=sublinea1[0].nombre)
+        proyectos.sublinea= sublinea2
+
+        nbc1 =MacroProyecto.objects.filter(nombre=request.POST['nombreMacroProyecto'])
+        nbc2 =MacroProyecto.objects.get(pk=macroproyecto1[0].nombre)
+        proyectos.nombreMacroProyecto= macroproyecto2
+
+        nbc1 =Nucleo_Basico_Conocimiento.objects.filter(area=request.POST['nbc'])
+        nbc2 = Nucleo_Basico_Conocimiento.objects.get(area=nbc1[0].area)
+        proyectos.NBC=nbc2
+
+        directorDeProyecto_copia=User.objects.get(pk=request.POST['nombreDirector'])
+        proyectos.directorDeProyecto=directorDeProyecto_copia
+
+        proyectos.nombre_IES= request.POST['nombreProyecto']
+      
+       
+        proyectos.perfiles= request.POST['perfiles']
+        
+       
+        proyectos.objetivo_proyecto= request.POST['objetivo']
+        
+        proyectos.cupoMax= request.POST['cupoMaximo']
+        proyectos.cupoMin= request.POST['cupoMinimo']
+
+
+        proyectos.save()
+
+        context={'proyectos':proyectos}
+        return render(request,"administrador/PaginaPrincipalAdmin.html")  
+    else:
+        context={'proyectos':proyectos, 'listMacroProyecto':macroproyectos, 'listEmpresa':empresas, 'listNBC':nbc, 'listSublinea':sublineas, 'list_tipoProyectos':tipo_proyectos, 'listDirector': usuariosDirectores }
+        return render(request,'administrador/editarProyecto.html',context)
+
+
+@login_required
+def eliminarProyecto_view(request, id_proyecto):
+    proyectos=Proyecto.objects.get(pk=id_proyecto)
+    proyectos.delete()
+    return render(request,"administrador/PaginaPrincipalAdmin.html")   

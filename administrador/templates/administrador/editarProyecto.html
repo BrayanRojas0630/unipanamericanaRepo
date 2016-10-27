@@ -1,0 +1,115 @@
+{% extends 'administrador/base/baseAdmin.html' %}
+{% load staticfiles %}
+{% block title %}Editarr Usuario{% endblock %}
+{% block extraLinks %}
+<link rel="stylesheet" href="{% static 'css/EstilosCrearProyecto.css' %}">
+{% endblock %}
+{% block contend %}
+<div class="formulario">
+	<fieldset>
+		<legend>Editar Proyectos</legend>
+		<form class="form-horizontal" method="post" action="">{% csrf_token %}
+		{{ form.as_p}}
+			<div class="formIzq">
+				{% if listMacroProyecto %}
+			    <div class="form-group">
+			      <label for="nombreMacroProyecto" class="col-lg-2 control-label labels">Nombre Macroproyecto:</label>
+			        <select class="form-control inputs" id="nombreMacroProyecto" name="nombreMacroProyecto" value="{{proyectos.nombreMacroProyecto}}" required>
+					{% for macroproyectos in listMacroProyecto %}
+			        	<option>{{macroproyectos.nombre}}</option>
+			        {% endfor%}
+			        </select>
+			    </div>
+			 
+			    {% endif %}
+			    <div class="form-group">
+			      <label for="objetivo" class="col-lg-2 control-label labels">Objetivo:</label>
+			        <textarea class="form-control inputs" rows="3"  id="objetivo" name="objetivo" value="{{proyectos.objetivo_proyecto}}" required></textarea>
+			    </div>
+			    {% if listEmpresa %}
+			    <div class="form-group">
+			      <label for="empresa" class="col-lg-2 control-label labels">Empresa:</label>
+			        <select class="form-control inputs" id="empresa" name="empresa" value="{{proyectos.empresa}}" required>
+					{% for empresas in listEmpresa %}
+			        	<option>{{empresas.nombre}}</option>
+			        {% endfor%}
+			        </select>
+			    </div>
+			    {% endif %}
+
+
+			    <div class="form-group">
+			      <label for="perfiles" class="col-lg-2 control-label labels">Perfiles:</label>
+			        <input type="text" class="form-control inputs" id="perfiles" name="perfiles" value="{{proyectos.perfiles}}" required>
+			    </div>
+			    {% if listNBC %}
+			    <div class="form-group">
+			      <label for="nbc" class="col-lg-2 control-label labels">NBC:</label>
+			        <select class="form-control inputs" id="nbc" name="nbc" value="{{proyectos.NBC}}" required>
+					{% for nbc in listNBC %}
+			        	<option>{{nbc.area}}</option>
+			        {% endfor%}
+			        </select>
+			    </div>
+			    {% endif %}
+			    
+			</div>
+			<div class="formDer">
+			    <div class="form-group">
+			      <label for="NombreProyecto" class="col-lg-2 control-label labels">Nombre del Proyecto:</label>
+			        <input type="text" class="form-control inputs" id="nombreProyecto" name="nombreProyecto" value="{{proyectos.nombre_IES}}" required>
+			    </div>
+			    {% if listSublinea %}
+			    <div class="form-group">
+			      <label for="sublinea" class="col-lg-2 control-label labels">Sublinea:</label>
+			     <select class="form-control inputs" id="sublinea" name="sublinea" value="{{proyectos.sublinea}}" required>
+					{% for sublineas in listSublinea %}
+			        	<option>{{sublineas.nombre}}</option>
+			        {% endfor%}
+			        </select>
+			    </div>
+			   
+			    {% endif %}
+			    {% if list_tipoProyectos %}
+			    <div class="form-group">
+					<label for="producto" class="col-lg-2 control-label labels">Producto:</label>
+					<select class="form-control inputs" id="producto" name="producto" value="{{proyectos.tipo_proyecto}}" required>
+					{% for tipo_proyectos in list_tipoProyectos %}
+			        	<option>{{tipo_proyectos.nombre}}</option>
+			        {% endfor%}
+			        </select>
+			    </div>
+			    {% endif %}
+
+			    {% if listDirector %}
+
+			    <div class="form-group">
+					<label for="nombreDirector" class="col-lg-2 control-label labels">Usuario Director:</label>
+					<select class="form-control inputs" id="nombreDirector" name="nombreDirector" value="{{proyectos.directorDeProyecto}}" required>
+					{% for usuariosDirectores in listDirector %}
+			        	<option value="{{usuariosDirectores.id}}"> {{usuariosDirectores.nombre}}  ({{usuariosDirectores.fk_authUser}})</option>
+			        {% endfor%}
+			        </select>
+			    </div>
+			  
+			    {% endif %}
+			    <div class="form-group">
+			      <label for="cupoMinimo" class="col-lg-2 control-label labels">Cupo Minimo(Estudiantes):</label>
+			      <input class="form-control inputs" type="number" value="2" min="2" max="5" id="cupoMinimo" value="{{proyectos.cupoMin}}" name="cupoMinimo" required>
+			    </div>
+			    <div class="form-group">
+			      <label for="cupoMaximo" class="col-lg-2 control-label labels">Cupo Maximo(Estudiantes):</label>
+			      <input class="form-control inputs" type="number" value="2" min="2" max="5" id="cupoMaximo" value="{{proyectos.cupoMax}}" name="cupoMaximo" required>
+			    </div>
+
+			    	<div class="form-group">
+			      <div class="col-lg-10 col-lg-offset-5">
+			        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+			   
+			 
+			    </div>
+			</div>
+		</form>
+	</fieldset>
+</div>
+{% endblock %}
