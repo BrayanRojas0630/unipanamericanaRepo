@@ -23,19 +23,16 @@ def subirActividad(request):
     user=User.objects.get(pk=request.session["id"])
     if request.method == "POST":
         actividad=Actividad_Estudiante()
-        try:
-            actividad.desarrollo=request.POST['desarrollo']
-            actividad.adjunto=request.POST['desarrolloAdjunto']
-            idActividad_copia=Actividad.objects.get(id=request.POST['idActividad'])
-            actividad.idActividad=idActividad_copia
-            idEstudiante_copia=User.objects.get(username=request.session["usuario"])
-            actividad.UsuarioEstudiante=idEstudiante_copia
-            actividad.save()
-            return render(request,"estudiante/PaginaPrincipalEstudiante.html")   
-        except KeyError:
-            datosUser=KeyError
-            context={'datosUser':datosUser}
-            return render(request,"estudiante/PaginaPrincipalEstudiante.html")   
+       
+        actividad.desarrollo=request.POST['desarrollo']
+        actividad.adjunto=request.FILES['desarrolloAdjunto']
+        idActividad_copia=Actividad.objects.get(id=request.POST['idActividad'])
+        actividad.idActividad=idActividad_copia
+        idEstudiante_copia=User.objects.get(username=request.session["usuario"])
+        actividad.UsuarioEstudiante=idEstudiante_copia
+        actividad.save()
+        return render(request,"estudiante/PaginaPrincipalEstudiante.html")   
+         
     else:
         actividades=Actividad.objects.all()
         context={'listActividades':actividades,'listEstudiante':user}

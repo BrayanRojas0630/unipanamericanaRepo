@@ -24,7 +24,7 @@ def crearActividad(request):
             actividad.porcentaje=request.POST['porcentaje']
             actividad.tipo_actividad=request.POST['tipo_actividad']
             actividad.estado=request.POST['estado']
-            #actividad.documentoAdjunto=request.POST['documentoAdjunto']
+            actividad.documentoAdjunto=request.FILES['documentoAdjunto']
             actividad.observaciones=request.POST['observaciones']
             usuario=User.objects.get(pk=request.session['id'])
             proyecto=Proyecto.objects.get(id=request.POST['idProyecto'])
