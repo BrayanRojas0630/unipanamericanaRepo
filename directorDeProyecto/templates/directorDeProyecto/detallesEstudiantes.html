@@ -1,0 +1,50 @@
+{% extends 'directorDeProyecto/base/baseDirectorProyecto.html' %}
+{% load staticfiles %}
+{% block title %}Estudiantes Proyecto{% endblock %}
+{% block extraLinks %}
+<link rel="stylesheet" href="{% static 'css/EstilosCrearProyecto.css' %}">
+{% endblock %}
+{% block contend %}
+<div class="formulario">
+	<fieldset>
+		<legend>Estudiantes de {{proyecto.nombre_IES}}</legend>
+			
+		{% if listPerfiles %}
+				<table class="table table-striped table-hover">
+					<tr>
+						<td><strong>Nombres</strong></td>
+						<td><strong>Apellidos</strong></td>
+						<td><strong>Documento</strong></td>
+						<td><strong>Telefono</strong></td>
+						<td><strong>Email</strong></td>
+						<td><strong>Email Institucional</strong></td>
+						<td><strong>Facultad</strong></td>
+						<td><strong>Programa</strong></td>
+						<td><strong>Reporte notas</strong></td>
+					</tr>
+				
+				{% for perfiles in listPerfiles %}
+			        <tr>
+						<td>{{perfiles.nombre}}</td>
+						<td>{{perfiles.apellido}}</td>
+						<td>{{perfiles.documento}}</td>
+						<td>{{perfiles.telefono}}</td>
+						<td>{{perfiles.mail}}</td>
+						<td>{{perfiles.mail_institucional}}</td>
+						<td>{{perfiles.fkFacultad.nombre}}</td>
+						<td>{{perfiles.fkPrograma.nombre}}</td>
+						<td>[aca estara el link al descargar pdf del estudiante]</td>
+					</tr>
+			        {% endfor%}
+	
+				</table>
+		{% else %}
+		<span>No hay estudiantes</span>
+		{% endif%}
+				
+				</div>
+
+				
+	</fieldset>
+</div>
+{% endblock %}

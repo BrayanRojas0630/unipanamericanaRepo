@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from administrador.models import Proyecto,Tipo_Proyecto,Red_de_Coperacion,Fuente_de_Financiacion,Maximo_Nivel_Educativo,Nucleo_Basico_Conocimiento,Grupo_De_Investigacion,Linea_Investigacion,tipo_Participacion_Proyecto 
 from .models import Actividad,Actividad_Estudiante,Corte
-
+from usuario.models import Perfil,Noticias
 
 @login_required
 def inicio(request):
@@ -110,12 +110,19 @@ def buscarProyecto(request):
         context={'listaUsuario':proyectoUsuario}
         return render(request,"directorDeProyecto/buscarProyectos.html",context)
 
-
 def proyectosAsignados(request):
     proyectos=Proyecto.objects.filter(directorDeProyecto=request.session["id"])
     context={'listaProyectos':proyectos}
     return render(request,'directorDeProyecto/proyectosAsignados.html',context)
     
+def detallesEstudiantes(request,id_proyecto):
+    proyecto=Proyecto.objects.get(pk=id_proyecto)
+    perfiles=Perfil.objects.filter(fkProyecto=id_proyecto)
+    context={'proyecto':proyecto,'listPerfiles':perfiles}
+    return render(request,'directorDeProyecto/detallesEstudiantes.html',context)
+    
+
+
 def editarProyectoDP(request, proyecto_id):
     message=None
     

@@ -9,10 +9,10 @@ urlpatterns = [
     url(r'buscarProyecto/$',views.buscarProyecto,name='buscarProyecto'),
     url(r'(?P<proyecto_id>[0-9]+)/editarProyecto$',views.editarProyectoDP,name='editarProyecto'),
     url(r'proyectosAsignados/$',views.proyectosAsignados,name='proyectosAsignados'),
-     
     url(r'(?P<id_actividad>[0-9]+)/editarActividad$',views.editarActividad,name='editarActividad$'),
     url(r'verActividades/$',views.verActividades,name='verActividades'),
-     url(r'(?P<id_actividad>[0-9]+)/calificarActividad$',views.calificarActividad,name='calificarActividad'),
+    url(r'(?P<id_actividad>[0-9]+)/calificarActividad$',views.calificarActividad,name='calificarActividad'),
+    url(r'(?P<id_proyecto>[0-9]+)/detallesEstudiantes$',views.detallesEstudiantes,name='detallesEstudiantes'),
     
     
     url(r'$',views.inicio, name='paginaPrincipalDirProyecto'),

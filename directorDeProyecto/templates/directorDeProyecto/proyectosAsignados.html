@@ -19,6 +19,7 @@
 						<td><strong>Resumen</strong></td>
 						<td><strong>Sede</strong></td>
 						<td><strong>Finalizado</strong></td>
+						<td><strong>Detalles Estudiantes</strong></td>
 					</tr>
 				{% if listaProyectos %}
 				{% for proyectos in listaProyectos %}
@@ -30,6 +31,7 @@
 						<td>{{proyectos.resumen_proyecto}}</td>
 						<td>{{proyectos.sede}}</td>
 						<td>{{proyectos.finalizado}}</td>
+						<td><a href="{{proyectos.id}}/detallesEstudiantes">{{proyectos.nombre_IES}}</a></td>
 					</tr>
 			        {% endfor%}	
 	

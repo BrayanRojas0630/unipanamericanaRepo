@@ -28,8 +28,12 @@
 						<td>{{actividades.corte}}</td>
 						<td>{{actividades.estado}}</td>
 						<td>{{listProyect.nombre_IES}}</td>
-						<td><a href="{{actividades.id}}/editarActividad">editar</a></td>
+							<td><a href="{{actividades.id}}/editarActividad">editar</a></td>
+						{% ifequal "Calificable" actividades.tipo_actividad %}
 						<td><a href="{{actividades.id}}/calificarActividad">Calificar</a></td>
+						{% else %}
+						<td><span>Actividad No calificable</span></td>
+						 {% endifequal %}
 					</tr>
 			        {% endfor%}	
 	
