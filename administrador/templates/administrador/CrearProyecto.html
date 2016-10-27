@@ -14,114 +14,134 @@
 		<form class="form-horizontal" method="post" action="">{% csrf_token %}
 		{{ form.as_p}}
 			<div class="formIzq">
-				<div class="form-group">
-					<label for="nombreMacroProyecto" class="control-label labels">Nombre Macroproyecto:</label>
-					<input type="text" class="form-control inputs" id="nombreMacroProyecto" name="nombreMacroProyecto" placeholder="Escribe Nombre Macroproyecto" required>
-				</div>
+				{% if listMacroProyecto %}
+			    <div class="form-group">
+			      <label for="nombreMacroProyecto" class="col-lg-2 control-label labels">Nombre Macroproyecto:</label>
+			        <select class="form-control inputs" id="nombreMacroProyecto" name="nombreMacroProyecto" required>
+					{% for macroproyectos in listMacroProyecto %}
+			        	<option>{{macroproyectos.nombre}}</option>
+			        {% endfor%}
+			        </select>
+			    </div>
+			    {% else %}
+			    <div class="form-group has-error">
+					<label for="nombreMacroProyecto" class="col-lg-2 control-label labels">Nombre MacroProyecto:</label>
+					<select class="form-control inputs" id="nombreMacroProyecto" name="nombreMacroProyecto" required>
+			        	<option class="">No hay MacroProyectos Registrados</option>
+					</select>
+			    </div>
+			    {% endif %}
+			    <div class="form-group">
+			      <label for="objetivo" class="col-lg-2 control-label labels">Objetivo:</label>
+			        <textarea class="form-control inputs" rows="3"  id="objetivo" name="objetivo" placeholder="Escribe objetivo" required></textarea>
+			    </div>
+			    {% if listEmpresa %}
+			    <div class="form-group">
+			      <label for="empresa" class="col-lg-2 control-label labels">Empresa:</label>
+			        <select class="form-control inputs" id="empresa" name="empresa" required>
+					{% for empresas in listEmpresa %}
+			        	<option>{{empresas.nombre}}</option>
+			        {% endfor%}
+			        </select>
+			    </div>
+			    {% else %}
+			    <div class="form-group has-error">
+					<label for="empresa" class="col-lg-2 control-label labels">Empresa:</label>
+					<select class="form-control inputs" id="empresa" name="empresa" required>
+			        	<option class="">No hay Sublineas Registradas</option>
+					</select>
+			    </div>
+			    {% endif %}
+
+
+			    <div class="form-group">
+			      <label for="perfiles" class="col-lg-2 control-label labels">Perfiles:</label>
+			        <input type="text" class="form-control inputs" id="perfiles" name="perfiles" placeholder="Escribe Nombre de Perfiles" required>
+			    </div>
+			    <div class="form-group">
+			      <label for="nombreJurados" class="col-lg-2 control-label labels">Nombre Jurados:</label>
+			        <input type="text" class="form-control inputs" id="nombreJurados" name="nombreJurados" placeholder="Escribe Nombre de Jurados seguida por una ," required>
+			    </div>
+			    
 			</div>
 			<div class="formDer">
-				<div class="form-group">
-					<label for="NombreProyecto" class="control-label labels">Nombre del Proyecto:</label>
-					<input type="text" class="form-control inputs" id="nombreProyecto" name="nombreProyecto" placeholder="Escribe nombre del Proyecto" required>
-				</div>
-			</div>
-			<div class="formIzq">
-				<div class="form-group">
-					<label for="objetivo" class="control-label labels">Objetivo:</label>
-					<textarea class="form-control inputs" rows="3"  id="objetivo" name="objetivo" placeholder="Escribe objetivo" required></textarea>
-				</div>
-			</div>
-			<div class="formDer">
-				<div class="form-group">
-					<label for="sublinea" class="control-label labels">Sublinea:</label>
-					<input type="text" class="form-control inputs" id="sublinea" name="sublinea" placeholder="Escribe sublinea" required>
-				</div>
-			</div>
-			<div class="formIzq">
-				<div class="form-group">
-					<label for="empresa" class="control-label labels">Empresa:</label>
-					<input type="text" class="form-control inputs" id="empresa" name="empresa" placeholder="Escribe Nombre Empresa" required>
-				</div>
-			</div>
-			<div class="formDer">
+			    <div class="form-group">
+			      <label for="NombreProyecto" class="col-lg-2 control-label labels">Nombre del Proyecto:</label>
+			        <input type="text" class="form-control inputs" id="nombreProyecto" name="nombreProyecto" placeholder="Escribe nombre del Proyecto" required>
+			    </div>
+			    {% if listSublinea %}
+			    <div class="form-group">
+			      <label for="sublinea" class="col-lg-2 control-label labels">Sublinea:</label>
+			     <select class="form-control inputs" id="sublinea" name="sublinea" required>
+					{% for sublineas in listSublinea %}
+			        	<option>{{sublineas.nombre}}</option>
+			        {% endfor%}
+			        </select>
+			    </div>
+			    {% else %}
+			    <div class="form-group has-error">
+					<label for="sublinea" class="col-lg-2 control-label labels">Sublinea:</label>
+					<select class="form-control inputs" id="sublinea" name="sublinea" required>
+			        	<option class="">No hay Sublineas Registradas</option>
+					</select>
+			    </div>
+			    {% endif %}
 			    {% if list_tipoProyectos %}
-				<div class="form-group">
-					<label for="producto" class="control-label labels">Producto:</label>
+			    <div class="form-group">
+					<label for="producto" class="col-lg-2 control-label labels">Producto:</label>
 					<select class="form-control inputs" id="producto" name="producto" required>
 					{% for tipo_proyectos in list_tipoProyectos %}
-						<option>{{tipo_proyectos.nombre}}</option>
-					{% endfor%}
-					</select>
-				</div>
-				{% else %}
-				<div class="form-group has-error">
-					<label for="producto" class="control-label labels">Producto:</label>
+			        	<option>{{tipo_proyectos.nombre}}</option>
+			        {% endfor%}
+			        </select>
+			    </div>
+			    {% else %}
+			    <div class="form-group has-error">
+					<label for="producto" class="col-lg-2 control-label labels">Producto:</label>
 					<select class="form-control inputs" id="producto" name="producto" required>
-						<option class="">No hay Productos Registradas</option>
+			        	<option class="">No hay Productos Registradas</option>
 					</select>
-				</div>
-				{% endif %}
-			</div>
-			<div class="formIzq">
-				<div class="form-group">
-					<label for="perfiles" class="control-label labels">Perfiles:</label>
-					<input type="text" class="form-control inputs" id="perfiles" name="perfiles" placeholder="Escribe Nombre de Perfiles" required>
-				</div>
-			</div>
-			<div class="formDer">
-				{% if listDirector %}
-				<div class="form-group">
-					<label for="nombreDirector" class="control-label labels">Usuario Director:</label>
+			    </div>
+			    {% endif %}
+
+			    {% if listDirector %}
+
+			    <div class="form-group">
+					<label for="nombreDirector" class="col-lg-2 control-label labels">Usuario Director:</label>
 					<select class="form-control inputs" id="nombreDirector" name="nombreDirector" required>
 					{% for usuariosDirectores in listDirector %}
-						<option value="{{usuariosDirectores.id}}">{{usuariosDirectores.nombre}}</option>
-					{% endfor%}
-					</select>
-				</div>
-				{% else %}
-				<div class="form-group has-error">
-					<label for="nombreDirector" class="control-label labels">Usuario Director:</label>
+			        	<option value="{{usuariosDirectores.id}}"> {{usuariosDirectores.nombre}}  ({{usuariosDirectores.fk_authUser}})</option>
+			        {% endfor%}
+			        </select>
+			    </div>
+			    {% else %}
+			    <div class="form-group has-error">
+					<label for="nombreDirector" class="col-lg-2 control-label labels">Usuario Director:</label>
 					<select class="form-control inputs" id="nombreDirector" name="nombreDirector" required>
-						<option class="">No hay Directores de Proyecto Registrados</option>
+			        	<option class="">No hay Directores de Proyecto Registrados</option>
 					</select>
-				</div>
-				{% endif %}
+			    </div>
+			    {% endif %}
+			    <div class="form-group">
+			      <label for="cupoMinimo" class="col-lg-2 control-label labels">Cupo Minimo(Estudiantes):</label>
+			      <input class="form-control inputs" type="number" value="2" min="2" max="5" id="cupoMinimo" name="cupoMaximo" required>
+			    </div>
+			    <div class="form-group">
+			      <label for="cupoMaximo" class="col-lg-2 control-label labels">Cupo Maximo(Estudiantes):</label>
+			      <input class="form-control inputs" type="number" value="2" min="2" max="5" id="cupoMaximo" name="cupoMaximo" required>
+			    </div>
+			    <div class="form-group">
+			    {% if list_tipoProyectos and listDirector %}
+			    	<div class="col-lg-10 col-lg-offset-2 boton">
+			        	<input type="submit" class="btn btn-primary" id="crearProyecto" name="crearProyecto" value="Crear Proyectos" required>
+			    	</div>
+			    {% else %}
+			    	<div class="col-lg-10 col-lg-offset-2 boton">
+			        	<input type="submit" class="btn btn-primary" id="crearProyecto" name="crearProyecto" value="Crear Proyectos" disabled>
+			    	</div>
+			    {% endif %}
+			    </div>
 			</div>
-			<div class="formIzq">
-				<div class="form-group">
-					<label for="nombreJurados" class="control-label labels">Nombre Jurados:</label>
-					<input type="text" class="form-control inputs" id="nombreJurados" name="nombreJurados" placeholder="Escribe Nombre de Jurados seguida por una ," required>
-				</div>
-			</div>
-			<div class="formDer">
-				<div class="form-group">
-					<label for="cupoMinimo" class="control-label labels">Cupo Minimo(Estudiantes):</label>
-					<input class="form-control inputs" type="number" value="2" min="2" max="5" id="cupoMinimo" name="cupoMaximo" required>
-				</div>
-			</div>
-			<div class="formIzq">
-				<div class="form-group">
-					<label for="cupoMaximo" class="control-label labels">Cupo Maximo(Estudiantes):</label>
-					<input class="form-control inputs" type="number" value="2" min="2" max="5" id="cupoMaximo" name="cupoMaximo" required>
-				</div>
-				<div class="form-group">
-				{% if list_tipoProyectos and listDirector %}
-					<div class="col-lg-10 col-lg-offset-2 boton">
-						<input type="submit" class="btn btn-primary" id="crearProyecto" name="crearProyecto" value="Crear Proyectos" required>
-					</div>
-				{% else %}
-					<div class="col-lg-10 col-lg-offset-2 boton">
-						<input type="submit" class="btn btn-primary" id="crearProyecto" name="crearProyecto" value="Crear Proyectos" disabled>
-					</div>
-				{% endif %}
-				</div>
-			</div>
-			<!-- <div class="formIzq">
-			    
-			</div> -->
-			<!-- <div class="formDer">
-			
-			</div> -->
 		</form>
 	</fieldset>
 </div>

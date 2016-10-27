@@ -6,10 +6,12 @@ from django.db import models
 class Perfil(models.Model):
     fk_authUser = models.OneToOneField(User, on_delete=models.CASCADE)
     nombre=models.CharField(max_length=100)
+    apellido=models.CharField(max_length=100)
     tipo_documento=models.CharField(max_length=100)
     documento=models.CharField(max_length=100)
     telefono=models.CharField(max_length=100, blank= True, null = True)
     celular=models.CharField(max_length=100)
+    mail=models.CharField(max_length=100)
     mail_institucional=models.CharField(max_length=100)
     nro_Proyectos_a_Cargo=models.IntegerField(blank=True, null=True)
     rol=models.CharField(max_length=100)

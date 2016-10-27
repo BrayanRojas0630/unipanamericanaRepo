@@ -33,7 +33,7 @@
 
 		</thead>
 		<tbody>
-			{% if listUsuarios and listUser %}
+			{% if listUsuarios %}
 			{% for usuarios in listUsuarios %}
 			<tr>
 				<td>{{usuarios.fk_authUser}}</td>
@@ -42,9 +42,9 @@
 				<td>{{usuarios.documento}}</td>
 				<td>{{usuarios.telefono}}</td>
 				<td>{{usuarios.celular}}</td>
-				<td>{{usuarios.email}}</td>
+				<td>{{usuarios.mail}}</td>
 				<td>{{usuarios.mail_institucional}}</td>
-				<td>{{usuarios.facultad}}</td>
+				<td>{{usuarios.fkFacultad}}</td>
 				<td>{{usuarios.nro_Proyectos_a_Cargo}}
 				<td>{{usuarios.rol}}</td>
 				

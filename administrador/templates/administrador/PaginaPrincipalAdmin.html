@@ -28,12 +28,12 @@
 </header>
 <div class="contenedor-menu">
 	<ul class="menu">
-		<li><a href="#"><i class="icono izquierda fa fa-user-plus" aria-hidden="true"></i>Registrar Usuario<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
+		<li><a href="#"><i class="icono izquierda fa fa-user-plus" aria-hidden="true"></i>Gestión de Usuarios<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
 			<ul>
 				<li><a href="{% url "registrarUsuarios" %}">Registrar Usuarios</a></li>
 				<li><a href="{% url "listaUsuarios" %}">Listar Usuarios</a></li>
-				<li><a href="PaginaPrincipalAdmin/editarUsuarios">Editar Usuarios</a></li>
-				<li><a href="PaginaPrincipalAdmin/eliminarUsuarios/">Eliminar Usuarios</a></li>
+				<li><a href="{% url "mostrarUsuario" %}">Editar / Eliminar</a></li>
+			
 
 			</ul>
 		</li>

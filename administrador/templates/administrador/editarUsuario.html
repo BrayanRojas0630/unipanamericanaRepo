@@ -1,0 +1,83 @@
+{% extends 'administrador/base/baseAdmin.html' %}
+{% load staticfiles %}
+{% block title %}Editarr Usuario{% endblock %}
+{% block extraLinks %}
+<link rel="stylesheet" href="{% static 'css/EstilosCrearProyecto.css' %}">
+{% endblock %}
+{% block contend %}
+<div class="formulario">
+	<fieldset>
+		<legend>Editar Usuario</legend>
+		<form class="form-horizontal" method="post" enctype="multipart/form-data">{% csrf_token %}
+		{{ form.as_p}}
+			<div class="formIzq">
+				    <div class="form-group">
+				      <label for="usuario" class="col-lg-2 control-label labels">Usuario</label>
+				        <input type="text" class="form-control inputs" id="usuario" name="usuario" value="{{perfiles.fk_authUser}}" required >
+				    </div>    
+				    <div class="form-group">
+				      <label for="nombre" class="col-lg-2 control-label labels">Nombres</label>
+				        <input type="text" class="form-control inputs" id="nombre" name="nombre" value="{{perfiles.nombre}}" required>
+				    </div>
+				    <div class="form-group">
+				      <label for="apellido" class="col-lg-2 control-label labels">Apellidos</label>
+				        <input type="text" class="form-control inputs" id="apellido" name="apellido" value="{{perfiles.apellido}}" required>
+				    </div>
+				    <div class="form-group">
+				      <label for="documento" class="col-lg-2 control-label labels">Documento</label>
+				        <input type="text" class="form-control inputs" id="documento" name="documento" value="{{perfiles.documento}}" required>
+				    </div>
+				    <div class="form-group">
+				      <label for="telefono" class="col-lg-2 control-label labels">Telefono</label>
+				        <input type="text" class="form-control inputs" id="telefono" name="telefono" value="{{perfiles.telefono}}" required>
+				    </div>
+				    <div class="form-group">
+				      <label for="celular" class="col-lg-2 control-label labels">Celular</label>
+				        <input type="text" class="form-control inputs" id="celular" name="celular" value="{{perfiles.celular}}" required>
+				    </div>
+				    </div>
+				<div class="formDer">
+
+					 <div class="form-group">
+						    <label for="mail" class="col-lg-2 control-label labels">E-Mail</label>
+						    <input type="email" class="form-control inputs" id="mail" name="mail" value="{{perfiles.mail}}" required>
+					    </div>
+
+					<div class="form-group">
+						      <label for="mail_institucional" class="col-lg-2 control-label labels">Mail Institucional</label>
+						        <input type="email" class="form-control inputs" id="mail_institucional" name="mail_institucional" value="{{perfiles.mail_institucional}}" required>
+						    </div>
+
+					<div class="form-group">
+						<label for="facultad" class="col-lg-2 control-label labels">Facultad</label>
+						<input type="text" class="form-control inputs" id="facultad" name="facultad" value="{{perfiles.fkFacultad}}" required >
+					</div>
+
+					<div class="form-group">
+						<label for="rol" class="col-lg-2 control-label labels">Rol</label>
+						<input type="text" class="form-control inputs" id="rol" name="rol" value="{{perfiles.rol}}" required >
+					</div>
+
+					<div class="form-group">
+						      <label for="nro_proyectos_a_cargo" class="col-lg-2 control-label labels">Nro proyectos a cargo</label>
+						        <input type="text" class="form-control inputs" id="nro_proyectos_a_cargo" name="nro_proyectos_a_cargo" value="{{perfiles.nro_Proyectos_a_Cargo}}">
+					</div>
+			
+		<div class="form-group">
+			      <div class="col-lg-10 col-lg-offset-5">
+			      {% if perfiles %}
+			        <button type="submit" class="btn btn-primary">Editar Usuario</button>
+			      {% else %}
+			      	<button type="submit" class="btn btn-primary" disabled>Editar Usuario</button>
+			      {% endif %}
+			      </div>
+			    </div>
+			    </div>
+
+		</form>
+		{% if message %}
+		<h1>{{message}}</h1>
+		 {% endif %}
+	</fieldset>
+</div>
+{% endblock %}

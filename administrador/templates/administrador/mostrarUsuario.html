@@ -1,0 +1,55 @@
+{% extends 'administrador/base/baseAdmin.html' %}
+{% load staticfiles %}
+{% block title %}Editarr Usuario{% endblock %}
+{% block extraLinks %}
+<link rel="stylesheet" href="{% static 'css/EstilosCrearProyecto.css' %}">
+{% endblock %}
+{% block contend %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<center><legend>Editar Usuarios</legend></center>
+	<table class="table table-striped table-hover">
+		<thead>
+			<tr class="danger estiloTabla" bgcolor= "black">
+				<td>USUARIO</td>
+				<td>NOMBRE</td>
+				<td>APELLIDO</td>
+				<td>DOCUMENTO</td>
+				<td>ROL</td>
+				
+			</tr>
+
+		</thead>
+		<tbody>
+			{% if listPerfiles %}
+			{% for perfiles in listPerfiles %}
+			<tr>
+				<td>{{perfiles.fk_authUser}}</td>
+				<td>{{perfiles.nombre}}</td>
+				<td>{{perfiles.apellido}}</td>
+				<td>{{perfiles.documento}}</td>
+				<td>{{perfiles.rol}}</td>
+				<td><a href="{{perfiles.id}}/editarUsuarios">Editar</a></td>	
+				<td><a href="{{perfiles.id}}/eliminarUsuarios">Eliminar</a></td>	
+
+			</tr>
+			{% endfor %}
+			{% else %}
+			<h1>no hay registros</h1>
+			{% endif %}
+		</tbody>
+
+		
+
+	</table>		
+
+		
+	</fieldset>
+</div>
+
+{% endblock %}
