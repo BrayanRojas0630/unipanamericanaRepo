@@ -1,0 +1,176 @@
+{% extends 'usuario/base/baseDirectorProyecto.html' %}
+
+{% load staticfiles %}
+{% block title %}Especificacion de Proyecto{% endblock %}
+{% block extraLinks %}
+<link rel="stylesheet" href="{% static 'css/EstilosCrearProyecto.css' %}">
+{% endblock %}
+{% block contend %}
+<div class="formulario">
+	<fieldset>
+		<legend>Especificacion de Proyecto</legend>
+		<table class="table table-striped table-hover">
+  <tr >
+    <td class="danger estiloTabla" bgcolor= "black"><strong>Codigo_IES: </strong></td>
+    <td>{{proyecto.codigo_IES}}</td>
+  </tr>
+  <tr >
+    <td class="danger estiloTabla" bgcolor= "black"><strong>Nombre Macroproyecto</strong></td>
+    <td>{{proyecto.nombreMacroProyecto}}</td>
+  </tr>
+  <tr >
+    <td class="danger estiloTabla" bgcolor= "black"><strong>Nombre IES</strong></td>
+    <td>{{proyecto.nombre_IES}}</a></td>
+  </tr>
+  <tr >
+    <td class="danger estiloTabla" bgcolor= "black"><strong>Año</strong></td>
+    <td>{{proyecto.ano}}</td>
+  </tr>
+  <tr>
+    <td  class="danger estiloTabla" bgcolor= "black"><strong>Semestre</strong></td>
+    <td>{{proyecto.semestre}}</td>>
+  </tr>
+  <tr >
+    <td class="danger estiloTabla" bgcolor= "black"><strong>Titulo</strong></td>
+    <td>{{proyecto.titulo}}</td>
+  </tr>
+  <tr>
+    <td class="danger estiloTabla" bgcolor= "black"><strong>Fecha Inicio</strong></td>
+    <td>{{proyecto.fecha_inicio}}</td>
+  </tr>
+  
+ <tr>
+    <td class="danger estiloTabla" bgcolor= "black"><strong>Duracion</strong></td>
+    <td>{{proyecto.duracion}}</td>
+  </tr>
+  <tr>
+    <td class="danger estiloTabla" bgcolor= "black"><strong>Objetivo SocioEconomico</strong></td>
+    <td>{{proyecto.objetivo_socioeconomico}}</td>
+  </tr>
+  <tr>
+    <td class="danger estiloTabla" bgcolor= "black"><strong>Objetivo Proyecto</strong></td>
+    <td>{{proyecto.objetivo_proyecto}}</td>
+  </tr>
+  <tr>
+    <td class="danger estiloTabla" bgcolor= "black"><strong>Resumen</strong></td>
+      <td>{{proyecto.resumen_proyecto}}</td>
+  </tr>
+  <tr>
+    <td class="danger estiloTabla" bgcolor= "black"><strong>Resultados Esperados</strong></td>
+    <td>{{proyecto.resultados_esperados}}</td>
+  </tr>
+  <tr>
+      <td class="danger estiloTabla" bgcolor= "black"><strong>Sede</strong></td>
+      <td>{{proyecto.sede}}</td>
+  </tr>
+  <tr>
+    <td class="danger estiloTabla" bgcolor= "black"><strong>Nombre Materia</strong></td>
+    <td>{{proyecto.nombre_materia}}</td>
+  </tr>
+  <tr>
+    <td class="danger estiloTabla" bgcolor= "black"><strong>Codigo Materia</strong></td>
+    <td>{{proyecto.codigo_materia}}</td>
+  </tr>
+  <tr>
+    <td class="danger estiloTabla" bgcolor= "black"><strong>Grupo Materia</strong></td>
+    <td>{{proyecto.grupo_materia}}</td>
+  </tr>
+  <tr>
+    <td class="danger estiloTabla" bgcolor= "black"><strong>Horas Asignadas</strong></td>
+      <td>{{proyecto.horas_asignadas_docente}}</td>
+  </tr>
+  <tr>
+    <td class="danger estiloTabla" bgcolor= "black"><strong>Gasto Total</strong></td>
+    <td>{{proyecto.gasto_total}}</td>
+  </tr>
+  <tr>
+    <td class="danger estiloTabla" bgcolor= "black"><strong>Tipo De Gasto</strong></td>
+      <td>{{proyecto.tipo_De_gasto}}</td>
+  </tr>
+  <tr>
+    <td class="danger estiloTabla" bgcolor= "black"><strong>Valor Semana</strong></td>
+    <td>{{proyecto.valor_semana}}</td>
+  </tr>
+  <tr>
+    <td class="danger estiloTabla" bgcolor= "black"><strong>SubLinea</strong></td>
+      <td>{{proyecto.sublinea}}</td>
+  </tr>
+  <tr>
+    <td class="danger estiloTabla" bgcolor= "black"><strong>Empresa</strong></td>
+      <td>{{proyecto.empresa}}</td>
+  </tr>
+  <tr>
+    <td class="danger estiloTabla" bgcolor= "black"><strong>Nombre Jurados</strong></td>
+    <td>{{proyecto.jurado}}</td>
+      
+  </tr>
+  <tr>
+    <td class="danger estiloTabla" bgcolor= "black"><strong>Perfiles</strong></td>
+    <td>{{proyecto.perfiles}}</td>
+  </tr>
+  <tr>
+    <td class="danger estiloTabla" bgcolor= "black"><strong>valor</strong></td>
+      <td>{{proyecto.valor_semana}}</td>
+  </tr>
+  <tr>
+    <td class="danger estiloTabla" bgcolor= "black"><strong>Sustentacion Publica</strong></td>
+      <td>{{proyecto.realizo_Sustentacion_publica}}</td>
+  </tr>
+  <tr>
+    <td class="danger estiloTabla" bgcolor= "black"><strong>Entidades Participantes</strong></td>
+    <td>{{proyecto.otras_Entidades_Participantes}}</td>
+  </tr>
+  <tr>
+    <td class="danger estiloTabla" bgcolor= "black"><strong>Area De Conocimiento</strong></td>
+    <td>{{proyecto.asociado_al_area_de_conocimiento}}</td>
+  </tr>
+  <tr>
+    <td class="danger estiloTabla" bgcolor= "black"><strong>Finalizado</strong></td>
+    <td>{{proyecto.finalizado}}</td>
+  </tr>
+  <tr>
+    <td class="danger estiloTabla" bgcolor= "black"><strong>Paz Y Salvo</strong></td>
+    <td>{{proyecto.paz_y_salvo}}</td>
+  </tr>
+  <tr>
+    <td class="danger estiloTabla" bgcolor= "black"><strong>Modalidad Seminario</strong></td>
+    <td>{{proyecto.modalidad_de_seminario}}</td>
+  </tr>
+  <tr>
+    <td class="danger estiloTabla" bgcolor= "black"><strong>Fuente Financiacion</strong></td>
+    <td>{{proyecto.Fuente_de_financiacion}}</td>
+  </tr>
+  <tr>
+    <td class="danger estiloTabla" bgcolor= "black"><strong>NBC</strong></td>
+    <td>{{proyecto.NBC}}</td>
+  </tr>
+    <td class="danger estiloTabla" bgcolor= "black"><strong>Director</strong></td>
+      <td>{{proyecto.directorDeProyecto}}</td>
+  <tr>
+    <td class="danger estiloTabla" bgcolor= "black"><strong>Grupo Investigacion</strong></td>
+      <td>{{proyecto.idGrupo_investigacion}}</td>
+  </tr>
+    <td class="danger estiloTabla" bgcolor= "black"><strong>Lineas Investigacion</strong></td>
+      <td>{{proyecto.id_lineas_investigacion_asociadas}}</td>
+  <tr>
+    <td class="danger estiloTabla" bgcolor= "black"><strong>Maximo Nivel educativo</strong></td>
+      <td>{{proyecto.maximo_nivel_educativo}}</td>
+  </tr>
+
+  <tr>
+    <td class="danger estiloTabla" bgcolor= "black"><strong>Red Investigacion</strong></td>
+      <td>{{proyecto.red_investigacion}}</td>
+  </tr>
+  <tr>
+    <td class="danger estiloTabla" bgcolor= "black"><strong>Participacion Proyecto</strong></td>
+      <td>{{proyecto.tipo_participacion_proyecto}}</td>
+  </tr>
+  <tr>
+    <td class="danger estiloTabla" bgcolor= "black"><strong>Tipo Proyecto</strong></td>
+      <td>{{proyecto.tipo_proyecto}}</td>
+  </tr>
+  
+</table>
+	</fieldset>
+</div>
+{% endblock %}

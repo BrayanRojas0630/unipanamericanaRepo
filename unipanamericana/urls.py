@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from usuario import views as usuar_view
 
 urlpatterns = [
     url(r'', include('usuario.urls')),# un usuario que llega, no importa si esta logeado o no  es un usuario
     url(r'^admin/', admin.site.urls),
+    url(r'^buscar/',usuar_view.inicio, name='buscar'),
     url(r'^administrador/', include('administrador.urls')),
     url(r'^directorDeProyecto/', include('directorDeProyecto.urls')),
     url(r'^estudiante/', include('estudiante.urls')),

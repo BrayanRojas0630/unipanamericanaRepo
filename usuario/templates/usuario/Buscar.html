@@ -1,0 +1,118 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Estudiante</title>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/EstilosGeneral.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/EstilosPagPrincAdmin.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script src="{% static 'js/ScriptsGeneral.js' %}"></script>
+  <script src="{% static 'js/ScriptsPagPrincAdmin.js' %}"></script>
+</head>
+<body class="cuerpo">
+<header>
+
+  <div class="wrapper">
+    <div class="logo"><img src="{% static 'logoUnipanamericana/logo Universidad.png' %}"></div>
+    <div class="titulo"><h3>Busqueda</h3></div>
+    
+  </div>
+</header>
+
+<div class="contenedor-menu">
+
+        
+  <ul class="menu">
+     
+    
+     <title>Search{% if query %} Results{% endif %}</title>
+    
+        <form method="POST" action="" > {% csrf_token %}
+          <input type="text"class="form-control" name="q" value="{{ query|escape }}">
+          <input type="submit" class="form-control" value="Buscar">
+          </form>
+    </li>
+  </ul>
+</div>
+<section class="contenido wrapper">
+
+  {% if listResults %}
+
+
+  </thead>
+        <h2>Results for "{{ query|escape }}":</h2>
+    <tbody>
+      {% if listResults %}
+      {% for proyectos in listResults %}
+
+<table class="table table-striped table-hover">
+  
+  <tr >
+    <td class="danger estiloTabla" bgcolor= "black"><strong>Nombre IES</strong></td>
+    <td><a href="{{proyectos.id}}/especificarProyecto">{{proyectos.nombre_IES}}</a></td>
+  </tr>
+  
+  
+</table>
+
+ 
+      {% endfor %}
+      {% else %}
+      <h1>No hay registros</h1>
+      
+      {% endif %}
+    {% else %}
+    <p>
+    Pero ¿de verdad es así? La respuesta tiene que ser negativa. La política no se hace en las urnas. El sistema de partido hegemónico que impera en México desde 1929 determina que la verdadera elección de diputados haya ocurrido en febrero, probablemente cuando los diversos intereses que es aglutinan en el PRI acordaron las candidaturas, en un proceso que sólo es formalmente interior, pero que por la naturaleza del partido es el que verdaderamente decide la composición de la Cámara.
+  </p>
+  <p>
+    Pero ¿de verdad es así? La respuesta tiene que ser negativa. La política no se hace en las urnas. El sistema de partido hegemónico que impera en México desde 1929 determina que la verdadera elección de diputados haya ocurrido en febrero, probablemente cuando los diversos intereses que es aglutinan en el PRI acordaron las candidaturas, en un proceso que sólo es formalmente interior, pero que por la naturaleza del partido es el que verdaderamente decide la composición de la Cámara.
+  </p><br>
+  <p>
+    Pero ¿de verdad es así? La respuesta tiene que ser negativa. La política no se hace en las urnas. El sistema de partido hegemónico que impera en México desde 1929 determina que la verdadera elección de diputados haya ocurrido en febrero, probablemente cuando los diversos intereses que es aglutinan en el PRI acordaron las candidaturas, en un proceso que sólo es formalmente interior, pero que por la naturaleza del partido es el que verdaderamente decide la composición de la Cámara.
+  </p><br>
+  <p>
+    Pero ¿de verdad es así? La respuesta tiene que ser negativa. La política no se hace en las urnas. El sistema de partido hegemónico que impera en México desde 1929 determina que la verdadera elección de diputados haya ocurrido en febrero, probablemente cuando los diversos intereses que es aglutinan en el PRI acordaron las candidaturas, en un proceso que sólo es formalmente interior, pero que por la naturaleza del partido es el que verdaderamente decide la composición de la Cámara.
+  </p><br>
+  <p>
+    Pero ¿de verdad es así? La respuesta tiene que ser negativa. La política no se hace en las urnas. El sistema de partido hegemónico que impera en México desde 1929 determina que la verdadera elección de diputados haya ocurrido en febrero, probablemente cuando los diversos intereses que es aglutinan en el PRI acordaron las candidaturas, en un proceso que sólo es formalmente interior, pero que por la naturaleza del partido es el que verdaderamente decide la composición de la Cámara.
+  </p>
+  <p>
+    Pero ¿de verdad es así? La respuesta tiene que ser negativa. La política no se hace en las urnas. El sistema de partido hegemónico que impera en México desde 1929 determina que la verdadera elección de diputados haya ocurrido en febrero, probablemente cuando los diversos intereses que es aglutinan en el PRI acordaron las candidaturas, en un proceso que sólo es formalmente interior, pero que por la naturaleza del partido es el que verdaderamente decide la composición de la Cámara.
+  </p><br>
+  <p>
+    Pero ¿de verdad es así? La respuesta tiene que ser negativa. La política no se hace en las urnas. El sistema de partido hegemónico que impera en México desde 1929 determina que la verdadera elección de diputados haya ocurrido en febrero, probablemente cuando los diversos intereses que es aglutinan en el PRI acordaron las candidaturas, en un proceso que sólo es formalmente interior, pero que por la naturaleza del partido es el que verdaderamente decide la composición de la Cámara.
+  </p><br>
+  <p>
+    Pero ¿de verdad es así? La respuesta tiene que ser negativa. La política no se hace en las urnas. El sistema de partido hegemónico que impera en México desde 1929 determina que la verdadera elección de diputados haya ocurrido en febrero, probablemente cuando los diversos intereses que es aglutinan en el PRI acordaron las candidaturas, en un proceso que sólo es formalmente interior, pero que por la naturaleza del partido es el que verdaderamente decide la composición de la Cámara.
+  </p><br>
+  <p>
+    Pero ¿de verdad es así? La respuesta tiene que ser negativa. La política no se hace en las urnas. El sistema de partido hegemónico que impera en México desde 1929 determina que la verdadera elección de diputados haya ocurrido en febrero, probablemente cuando los diversos intereses que es aglutinan en el PRI acordaron las candidaturas, en un proceso que sólo es formalmente interior, pero que por la naturaleza del partido es el que verdaderamente decide la composición de la Cámara.
+  </p>
+  <p>
+    Pero ¿de verdad es así? La respuesta tiene que ser negativa. La política no se hace en las urnas. El sistema de partido hegemónico que impera en México desde 1929 determina que la verdadera elección de diputados haya ocurrido en febrero, probablemente cuando los diversos intereses que es aglutinan en el PRI acordaron las candidaturas, en un proceso que sólo es formalmente interior, pero que por la naturaleza del partido es el que verdaderamente decide la composición de la Cámara.
+  </p><br>
+  <p>
+    Pero ¿de verdad es así? La respuesta tiene que ser negativa. La política no se hace en las urnas. El sistema de partido hegemónico que impera en México desde 1929 determina que la verdadera elección de diputados haya ocurrido en febrero, probablemente cuando los diversos intereses que es aglutinan en el PRI acordaron las candidaturas, en un proceso que sólo es formalmente interior, pero que por la naturaleza del partido es el que verdaderamente decide la composición de la Cámara.
+  </p><br>
+  <p>
+    Pero ¿de verdad es así? La respuesta tiene que ser negativa. La política no se hace en las urnas. El sistema de partido hegemónico que impera en México desde 1929 determina que la verdadera elección de diputados haya ocurrido en febrero, probablemente cuando los diversos intereses que es aglutinan en el PRI acordaron las candidaturas, en un proceso que sólo es formalmente interior, pero que por la naturaleza del partido es el que verdaderamente decide la composición de la Cámara.
+  </p><br>  
+  </section>
+    {% endif %}
+    </tbody>
+
+    
+
+  </table>    
+
+    
+  </fieldset>
+  
+  
+</body>
+</html>
