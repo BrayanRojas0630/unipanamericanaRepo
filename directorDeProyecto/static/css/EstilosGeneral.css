@@ -1,20 +1,29 @@
 *{margin: 0; padding:0;}
 
 .cuerpo{
-	background-color: #D7D6D6;
+	background-color: #f7f7f7;
 }
 
 header{
 	width: 100%;
 	overflow: hidden;
-	background: #FA8253;
+	background: #f09609;
 	position: fixed;
 }
 
+.titulo{
+	position: absolute;
+	left: 33%;
+	font-family: 'Roboto', sans-serif;
+	color: #fff;
+	font-size: 18px;
+	font-weight: bold;
+	top: 12%;
+}
 .wrapper {/*Centrar el contenido de la pagina web*/
 	width: 90%;
 	max-width: 1000px;
-	margin: auto;
+	 margin: auto; 
 	overflow: hidden;
 }
 
@@ -22,6 +31,8 @@ header .logo{/*Definir el tamaño y posicion del titulo o imagen*/
 	width: auto;
 	font-size: 50px;
 	line-height: 80px;
+	position: absolute;
+	left: 5%;
 	float: left;
 }
 .wrapper .logo img{
@@ -35,7 +46,7 @@ header .logo{/*Definir el tamaño y posicion del titulo o imagen*/
 
 .wrapper nav a{/*Modificar los campos de nav para que se vean como un nav bar*/
 	display: inline-block;
-	color: #000;
+	color: #fff;
 	text-decoration: none;
 	padding: 10px 20px;
 	line-height: normal;
@@ -47,8 +58,8 @@ header .logo{/*Definir el tamaño y posicion del titulo o imagen*/
 }
 
 .wrapper nav a:hover{/*Aplicar que cuando el raton este en algun nav, este cambie de color*/
-	background: #B6B2B0;
-	/*color: #fff;*/
+	background: #f7f7f7;
+	color: #000;
 	border-radius: 50px;/*Cambiar la caja cuadrada a circular*/
 
 }

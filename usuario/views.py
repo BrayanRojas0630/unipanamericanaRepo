@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 from administrador.models import Proyecto,Red_de_Coperacion,Fuente_de_Financiacion,Maximo_Nivel_Educativo,Nucleo_Basico_Conocimiento,Grupo_De_Investigacion,Linea_Investigacion,tipo_Participacion_Proyecto 
 
 
-@login_required
+
 def inicio(request):
     if request.method=='POST':
         query = request.POST.get('q',False)
@@ -110,7 +110,6 @@ def especificarProyecto(request, proyecto_id):
     nbc=Nucleo_Basico_Conocimiento.objects.all()
     max_nivel_educa=Maximo_Nivel_Educativo.objects.all()
     fuente_financia=Fuente_de_Financiacion.objects.all()
-    dirProyect=User.objects.filter(pk=request.session["id"])
     red_inves=Red_de_Coperacion.objects.all()
     if request.method=="POST":
         message=request.POST['nombreProyecto']+" lo cambio?"
@@ -120,5 +119,8 @@ def especificarProyecto(request, proyecto_id):
     else:
         context={'proyecto':proyecto,'lisGrupoInv':grupo_inves,'listLineasInv':linea_invs,
                  'lisTipoParticipacion':ti_parti_proy,'listNbc':nbc, 'listMaxNivelEdu':max_nivel_educa,
-                 'listFuenteFinancia':fuente_financia,'listDirProyect':dirProyect,'listRedInvest':red_inves}
+                 'listFuenteFinancia':fuente_financia,'listRedInvest':red_inves}
         return render(request,'usuario/especificarProyecto.html',context)
+
+def postularseProyecto(request):
+    return render(request,'usuario/PostularseProyecto.html')

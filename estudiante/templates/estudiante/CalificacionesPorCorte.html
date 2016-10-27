@@ -1,0 +1,41 @@
+{% extends 'estudiante/base/baseEstudiante.html' %}
+{% load staticfiles %}
+{% block title %}Mis Actividades{% endblock %}
+{% block extraLinks%}
+<link rel="stylesheet" href="{% static 'css/EstilosConsultas.css' %}">
+{% endblock%}
+{% block extraJs%}
+
+{% endblock %}
+
+{% block contend%}
+<div class="contenido">
+	<div class="otroTitulo">
+		<h1>Notas Corte</h1>
+	</div>
+
+	<table class="table table-striped table-hover ">
+	  <thead>
+	    <tr class="danger estiloTabla">
+	      <th>Nombre</th>
+	      <th>Porcentaje</th>
+	      <th>Nota</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    {% if listCortes %}
+		{% for cortes in listCortes %}
+	    <tr class="active">
+	      <td><a href="#">{{cortes.nombre}}</a></td>
+	      <td>{{cortes.porcentaje}}</td>
+	      <td>{{cortes.porcentaje}}</td>
+	      <td>{{cortes.nota}}</td>
+	    </tr>
+	    {% endfor%}
+	    {% else %}
+	    <h1>No hay Registros</h1>
+	    {% endif %}
+	  </tbody>
+	</table> 
+</div>
+{% endblock %}

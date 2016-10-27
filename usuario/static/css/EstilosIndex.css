@@ -20,6 +20,17 @@
 	font-size: 25px;
 	margin-right: 10px;
 }
+
+.tituloIndex{
+	position: absolute;
+	left: 35%;
+	font-family: 'Roboto', sans-serif;
+	color: #fff;
+	font-size: 18px;
+	font-weight: bold;
+	top: 12%;
+}
+
 #formLogin{
 	background: #f09609;
 	position: absolute;

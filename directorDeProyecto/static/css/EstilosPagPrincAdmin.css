@@ -1,7 +1,7 @@
 .titulo{
 	position: absolute;
 	left: 45%;
-	color: #000;
+	color: #fff;
 	font-size: 18px;
 	font-weight: bold;
 	top: 2%;
@@ -9,7 +9,7 @@
 .contenedor-menu{
 	float: left;
 	width: 20%;
-	margin-top: 5%;
+	margin-top: 6%;
 	padding-top: 5%;
 	/* padding:auto; */
 	display: inline-block;
@@ -17,7 +17,7 @@
 	line-height: 18px;
 	height: 100%;
 	position: fixed;
-	background-color: #FA8253;
+	background-color: #f09609;
 }
 
 .contenedor-menu .menu a{
@@ -34,16 +34,17 @@
 }
 
 .contenedor-menu .menu li a{
-	color: #000;
+	color: #fff;
 	font-weight: bold;
 	display: block;
 	margin: 0px 10px;
 	padding: 15px 20px;
-	background: #FA8253;
+	background: #f09609;
 }
 
 .contenedor-menu .menu li a:hover{
-	background: #B6B2B0;
+	background: #f7f7f7;
+	color: #000;
 }
 
 .contenedor-menu .menu .icono{
@@ -67,7 +68,7 @@
 }
 
 .contenedor-menu .menu ul li a{
-	background: #B6B2B0;
+	background: #f7f7f7;
 	color: #000;
 }
 
@@ -77,12 +78,12 @@
 }
 
 .contenedor-menu .menu ul li a{
-	background: #B6B2B0;
+	background: #f7f7f7;
 	color: #000;
 }
 
 .contenedor-menu .menu .activado > a{
-	background: #B6B2B0;
+	background: #f7f7f7;
 	color: #000;
 }
 

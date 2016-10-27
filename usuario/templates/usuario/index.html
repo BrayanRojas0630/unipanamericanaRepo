@@ -7,31 +7,26 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css/EstilosGeneral.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/EstilosIndex.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
-  <script src="{% static 'js/jQuery.js' %}"></script><!-- Codigo fuente Jquery -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/EstilosPagPrincAdmin.css' %}">
+  <script src="http://code.jquery.com/jquery-latest.js"></script><!-- Codigo fuente Jquery -->
+  <!-- <script src="{% static 'js/jQuery.js' %}"></script> -->
   <script src="{% static 'js/ScriptsGeneral.js' %}"></script>
   <script src="{% static 'js/ScriptsIndex.js' %}"></script>
+  <script src="{% static 'js/ScriptsPagPrincAdmin.js' %}"></script>
 
 </head>
 <body class="cuerpo">
-
 <header>
   <div class="wrapper">
       <div class="logo"><img src="{% static 'logoUnipanamericana/logo Universidad.png' %}"></div><!--logo Universidad!-->
-
-       
-      
-
+      <div class="tituloIndex"><h3>Sistema de Gestión de Trabajos de Grado</h3></div>
     <nav class="navBar">
     {%if saludo%}
     <b>{{saludo}}</b>
     {% endif%}
       <a href="#" id="botonIngresar"><i class="fa fa-user" aria-hidden="true"></i>Iniciar Sesion</a>
-     
-
     </nav>
-
   </div>
-   <a href="buscar" ><i class="fa fa-user" ></i>Buscar</a>
 </header>
 {% if message %}
 <div class="alert alert-dismissible alert-danger alerta" id="advertencia">
@@ -39,6 +34,16 @@
   <strong>Oh ERROR!</strong> <a href="#" class="alert-link">{{message}}</a> Intentalo de nuevo.
 </div>
 {% endif %}
+<div class="contenedor-menu">
+  <ul class="menu">
+    <li><a href="#"><i class="icono izquierda fa fa-file-archive-o" aria-hidden="true"></i>Proyectos<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
+      <ul>
+        <li><a href="buscar">Buscar Proyecto</a></li>
+        <li><a href="{% url 'postularseProyecto' %}">Postularse a Proyecto</a></li>
+      </ul>
+    </li>
+    </ul>
+</div>
 <section class="contenido wrapper">
 
 <p>
@@ -84,15 +89,13 @@
     <fieldset>
 {% block content %}
       <legend>Iniciar Sesion</legend>
-      {{datosPrueba}}
+  		{{datosPrueba}}
     
       <form action="" method="post">{% csrf_token %}
       {{ form.as_p}} <!--el fomulario se vulve todo un parrafao!!-->
         <input class="form-control" type="text" id="user" name="user" placeholder="Escribe Nombre de Usuario"><br>
         <input class="form-control" type="password" id="password" name="password" placeholder="Escribe Contraseña"><br>
-      <center>
         <input type="submit" class="btn btn-default" id="enviar" name="enviar" value="Enviar">
-      </center>
       </form>
       
     

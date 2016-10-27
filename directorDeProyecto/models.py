@@ -8,6 +8,10 @@ class Corte(models.Model):
     porcentaje=models.IntegerField(blank=True, null=True)
     nota=models.IntegerField(blank=True, null=True)
 
+    def __str__(self):
+        return self.nombre
+    
+
 class Actividad(models.Model):
     nombre=models.CharField(max_length=100)
     descripcion=models.CharField(max_length=100)
@@ -21,6 +25,10 @@ class Actividad(models.Model):
     observaciones=models.CharField(max_length=100)
     idDirector=models.ForeignKey(User,on_delete=models.CASCADE)
     idProyecto=models.ForeignKey(Proyecto,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.nombre
+    
     
     
 class Actividad_Estudiante(models.Model):
@@ -29,4 +37,3 @@ class Actividad_Estudiante(models.Model):
     adjunto=models.FileField(upload_to='Documentos/documentsEstudiante/', null=True)
     idActividad=models.ForeignKey(Actividad, on_delete=models.CASCADE)
     UsuarioEstudiante=models.ForeignKey(User, on_delete=models.CASCADE)
-    nombreCorte=models.ForeignKey(Corte, on_delete=models.CASCADE)
