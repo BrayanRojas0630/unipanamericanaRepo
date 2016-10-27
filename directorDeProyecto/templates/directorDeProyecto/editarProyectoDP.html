@@ -20,136 +20,140 @@
 				        <input type="text" class="form-control inputs" id="ano" name="ano" value="{{proyecto.ano}}" required>
 				    </div>
 				    
-				   <!----  <div class="form-group">
+				  	 <div class="form-group">
 				      <label for="semestre" class="col-lg-2 control-label labels">Semestre</label>
-				        <input type="text" class="form-control inputs" id="semestre" name="semestre" placeholder="Semestre" required>
+				        <input type="text" class="form-control inputs" id="semestre" name="semestre" value="{{proyecto.semestre}}" required>
 				    </div>
 				    
 				    <div class="form-group">
 				      <label for="titulo" class="col-lg-2 control-label labels">Titulo</label>
-				        <input type="text" class="form-control inputs" id="titulo" name="titulo" placeholder="Titulo" required>
+				        <input type="text" class="form-control inputs" id="titulo" name="titulo" value="{{proyecto.titulo}}" required>
 				    </div>
 				    
 				     <div class="form-group">
 				      <label for="duracion" class="col-lg-2 control-label labels">Duracion</label>
-				        <input type="text" class="form-control inputs" id="duracion" name="duracion" placeholder="Duracion" required>
+				        <input type="text" class="form-control inputs" id="duracion" name="duracion" value="{{proyecto.duracion}}" required>
 				    </div>
 				    
 				     <div class="form-group">
 				      <label for="sede" class="col-lg-2 control-label labels">Sede</label>
-				        <input type="text" class="form-control inputs" id="sede" name="sede" placeholder="Sede" required>
+				        <input type="text" class="form-control inputs" id="sede" name="sede" value="{{proyecto.sede}}" required>
 				    </div>
 				    
 				    <div class="form-group">
 				      <label for="nombre_materia" class="col-lg-2 control-label labels">Nombre Materia</label>
-				        <input type="text" class="form-control inputs" id="nombre_materia" name="nombre_materia" placeholder="Nombre Materia" required>
+				        <input type="text" class="form-control inputs" id="nombre_materia" name="nombre_materia" value="{{proyecto.nombre_materia}}" required>
 				    </div>
 				    
 				    <div class="form-group">
 				      <label for="codigo_materia" class="col-lg-2 control-label labels">Codigo Materia</label>
-				        <input type="text" class="form-control inputs" id="codigo_materia" name="codigo_materia" placeholder="Nombre Materia" required>
+				        <input type="text" class="form-control inputs" id="codigo_materia" name="codigo_materia"  value="{{proyecto.codigo_materia}}" required>
 				    </div>
 				    
 				    <div class="form-group">
 				      <label for="grupo_materia" class="col-lg-2 control-label labels">Grupo Materia</label>
-				        <input type="text" class="form-control inputs" id="grupo_materia" name="grupo_materia" placeholder="Grupo Materia" required>
+				        <input type="text" class="form-control inputs" id="grupo_materia" name="grupo_materia" value="{{proyecto.grupo_materia}}" required>
 				    </div>
 				    
 				    <div class="form-group">
 				      <label for="fecha_inicio" class="col-lg-2 control-label">Fecha Inicio</label>
-				        <input type="date" class="form-control inputs" id="fecha_inicio" name="fecha_inicio" required>
+				        <input type="date" class="form-control inputs" id="fecha_inicio" name="fecha_inicio" value="{{proyecto.fecha_inicio}}" required>
 				    </div>
 				    
 
 				    <div class="form-group">
-				      <label for="objetivo_socioeconomico" >Objetivo Socioeconomico</label>
-				        <textarea class="form-control inputs" rows="3" id="objetivo_socioeconomico" name="objetivo_socioeconomico" required></textarea>
+				      <label for="objetivo_socioeconomico" class="col-lg-2 control-label labels">Objetivo Socioeconomico</label>
+				      <textarea class="form-control inputs" rows="3" id="objetivo_socioeconomico" name="objetivo_socioeconomico"  required>{{proyecto.objetivo_socioeconomico}}</textarea>
 				    </div>
 				    
 				     <div class="form-group">
-				      <label for="resumen_proyecto">Resumen Proyecto</label>
-				        <textarea class="form-control inputs" rows="3" id="resumen_proyecto" name="resumen_proyecto" required></textarea>
+				      <label for="objetivo_proyecto" class="col-lg-2 control-label labels">Objetivo Proyecto</label>
+				      <textarea class="form-control inputs" rows="3" id="objetivo_proyecto" name="objetivo_proyecto"  required>{{proyecto.objetivo_proyecto}}</textarea>
 				    </div>
 				    
 				     <div class="form-group">
-				      <label for="resultados_esperados">Resultados Esperados</label>
-				        <textarea class="form-control inputs" rows="3" id="resultados_esperados" name="resultados_esperados" required></textarea>
+				      <label for="resumen_proyecto" class="col-lg-2 control-label labels">Resumen Proyecto</label>
+				        <textarea class="form-control inputs" rows="3" id="resumen_proyecto" name="resumen_proyecto"  required>{{proyecto.resumen_proyecto}}</textarea>
+				    </div>
+				    
+				     <div class="form-group">
+				      <label for="resultados_esperados" class="col-lg-2 control-label labels">Resultados Esperados</label>
+				        <textarea class="form-control inputs" rows="3" id="resultados_esperados" name="resultados_esperados"  required>{{proyecto.resultados_esperados}}</textarea>
 				    </div>
 			</div>
 			<div class="formDer">
 				    <div class="form-group">
 				      <label for="horas_asignadas_docente" class="col-lg-2 control-label labels">Horas:</label>
-				        <input type="text" class="form-control inputs" id="horas_asignadas_docente" name="horas_asignadas_docente" placeholder="Horas Asignadas Docente" required>
-				    </div>
-				    
-				    <div class="form-group">
-				      <label for="gasto_total" class="col-lg-2 control-label labels">Gasto</label>
-				        <input type="text" class="form-control inputs" id="gasto_total" name="gasto_total" placeholder="Gasto Total" required>
+				        <input type="number" class="form-control inputs" id="horas_asignadas_docente" name="horas_asignadas_docente" value="{{proyecto.horas_asignadas_docente}}" required>
 				    </div>
 				    
 				    <div class="form-group">
 				      <label for="tipo_De_gasto" class="col-lg-2 control-label labels">Tipo De Gasto</label>
-				        <input type="text" class="form-control inputs" id="tipo_De_gasto" name="tipo_De_gasto" placeholder="Tipo De Gasto" required>
+				        <input type="text" class="form-control inputs" id="tipo_De_gasto" name="tipo_De_gasto" value="{{proyecto.tipo_De_gasto}}" required>
 				    </div>
+				    
+				   <!-- 
+				    <div class="form-group">
+				      <label for="gasto_total" class="col-lg-2 control-label labels">Gasto</label>
+				        <input type="number" class="form-control inputs" id="gasto_total" name="gasto_total" value="{{proyecto.gasto_total}}" required>
+				    </div>
+				    -->
 				    
 				    <div class="form-group">
 				      <label for="valor_semana" class="col-lg-2 control-label labels">Valor Semana</label>
-				        <input type="text" class="form-control inputs" id="valor_semana" name="valor_semana" placeholder="Valor Semana" required>
+				        <input type="text" class="form-control inputs" id="valor_semana" name="valor_semana" value="{{proyecto.valor_semana}}" required>
 				    </div>
 				    
 				    <div class="form-group">
 				      <label for="empresa" class="col-lg-2 control-label labels">Empresa</label>
-				        <input type="text" class="form-control inputs" id="empresa" name="empresa" placeholder="Empresa" required>
+				        <input type="text" class="form-control inputs" id="empresa" name="empresa" value="{{proyecto.empresa}}" required>
 				    </div>
 				    
 				    <div class="form-group">
 				      <label for="perfiles" class="col-lg-2 control-label labels">Perfiles</label>
-				        <input type="text" class="form-control inputs" id="perfiles" name="perfiles" placeholder="Perfiles" required>
-				    </div>
-				    
-				    <div class="form-group">
-				      <label for="valor" class="col-lg-2 control-label labels">Valor</label>
-				        <input type="text" class="form-control inputs" id="valor" name="valor" placeholder="Valor" required>
+				        <input type="text" class="form-control inputs" id="perfiles" name="perfiles"   value="{{proyecto.perfiles}}" required>
 				    </div>
 				    
 				    <div class="form-group">
 				      <label for="realizo_Sustentacion_publica" class="col-lg-2 control-label labels">Sustentacion Publica</label>
-				        <input type="text" class="form-control inputs" id="realizo_Sustentacion_publica" name="realizo_Sustentacion_publica" placeholder="Realizo Sustentacion Publica" required>
+				        <input type="text" class="form-control inputs" id="realizo_Sustentacion_publica" name="realizo_Sustentacion_publica" value="{{proyecto.realizo_Sustentacion_publica}}" required>
 				    </div>
 				    
 				    <div class="form-group">
 				      <label for="otras_Entidades_Participantes" class="col-lg-2 control-label labels">Entidades Participantes</label>
-				        <input type="text" class="form-control inputs" id="otras_Entidades_Participantes" name="otras_Entidades_Participantes" placeholder="Otras Entidades Participantes" required>
+				        <input type="text" class="form-control inputs" id="otras_Entidades_Participantes" name="otras_Entidades_Participantes" value="{{proyecto.otras_Entidades_Participantes}}" required>
 				    </div>
 				    
 				    <div class="form-group">
 				      <label for="asociado_al_area_de_conocimiento" class="col-lg-2 control-label labels">Area De Conocimiento</label>
-				        <input type="text" class="form-control inputs" id="asociado_al_area_de_conocimiento" name="asociado_al_area_de_conocimiento" placeholder="Area De Conocimiento" required>
+				        <input type="text" class="form-control inputs" id="asociado_al_area_de_conocimiento" name="asociado_al_area_de_conocimiento" value="{{proyecto.asociado_al_area_de_conocimiento}}" required>
 				    </div>
 				    
 				    <div class="form-group">
 				      <label for="finalizado" class="col-lg-2 control-label labels">Finalizado</label>
-				        <input type="text" class="form-control inputs" id="finalizado" name="finalizado" placeholder="finalizado" required>
+				        <input type="text" class="form-control inputs" id="finalizado" name="finalizado" value="{{proyecto.finalizado}}" required>
 				    </div>
 				    
 				    <div class="form-group">
 				      <label for="paz_y_salvo" class="col-lg-2 control-label labels">Paz Y Salvo</label>
-				        <input type="text" class="form-control inputs" id="paz_y_salvo" name="paz_y_salvo" placeholder="Paz y Salvo" required>
+				        <input type="text" class="form-control inputs" id="paz_y_salvo" name="paz_y_salvo" value="{{proyecto.paz_y_salvo}}" required>
 				    </div>
 				    
 				    <div class="form-group">
 				      <label for="modalidad_de_seminario" class="col-lg-2 control-label labels">Modalidad De Seminario</label>
-				        <input type="text" class="form-control inputs" id="modalidad_de_seminario" name="modalidad_de_seminario" placeholder="Modalidad De Seminario" required>
+				        <input type="text" class="form-control inputs" id="modalidad_de_seminario" name="modalidad_de_seminario"  value="{{proyecto.modalidad_de_seminario}}" required>
 				    </div>
 				    {% if lisGrupoInv %}
-				    {% for grupo_inves in lisGrupoInv %}
+				    
 				    <div class="form-group">
 				      <label for="grupoInves" class="col-lg-2 control-label labels">Grupo Investigacion</label>
 				        <select class="form-control inputs" id="grupoInves" name="grupoInves" required>
+				    		{% for grupo_inves in lisGrupoInv %}
 				    		<option value="{{grupo_inves.id}}">{{ grupo_inves.nombre_IES}}</option>
+				    		{% endfor %}
 				    	</select>
 				    </div>
-				    {% endfor %}
+				    
 				    {% else %}
 				    <div class="form-group has-error">
 				      <label for="grupoInves" class="col-lg-2 control-label labels">Grupo Investigacion</label>
@@ -159,14 +163,16 @@
 				    </div>
 				    {% endif %}
 				    {% if listLineasInv %}
-				    {% for linea_invs in listLineasInv %}
+				    
 				    <div class="form-group">
 				      <label for="lineaInvesti" class="col-lg-2 control-label labels">Lineas Investigacion</label>
 				        <select class="form-control inputs" id="lineaInvesti" name="lineaInvesti" required>
+				    		{% for linea_invs in listLineasInv %}
 				    		<option value="{{linea_invs.id}}">{{ linea_invs.nombre}}</option>
+				    		{% endfor %}
 				    	</select>
 				    </div>
-				    {% endfor %}
+				    
 				    {% else %}
 				    <div class="form-group has-error">
 				      <label for="lineaInvesti" class="col-lg-2 control-label labels">Lineas Investigacion</label>
@@ -176,14 +182,16 @@
 				    </div>		
 				    {% endif %}
 				    {% if lisTipoParticipacion %}
-				    {% for ti_parti_proy in lisTipoParticipacion %}
+				    
 				     <div class="form-group">
 				      <label for="tipoParticipacionProyecto" class="col-lg-2 control-label labels">Tipo Participacion Proyecto</label>
 				        <select class="form-control inputs" id="tipoParticipacionProyecto" name="tipoParticipacionProyecto" required>
+				    		{% for ti_parti_proy in lisTipoParticipacion %}
 				    		<option value="{{ti_parti_proy.id}}">{{ ti_parti_proy.nombre}}</option>
+				    		{% endfor %}
 				    	</select>
 				    </div>
-				    {% endfor %}
+				    
 				    {% else %}
 				    <div class="form-group has-error">
 				      <label for="tipoParticipacionProyecto" class="col-lg-2 control-label labels">Tipo Participacion Proyecto</label>
@@ -194,14 +202,15 @@
 				    {% endif %}
 				    
 				    {% if listNbc %}
-				    {% for nbc in listNbc %}
 					<div class="form-group">
 				      <label for="nucleoBasic" class="col-lg-2 control-label labels">Nucleo Basico Conocimiento</label>
 				        <select class="form-control inputs" id="nucleoBasic" name="nucleoBasic">
+				    		{% for nbc in listNbc %}
 				    		<option value="{{nbc.id}}">{{nbc.area}}</option>
+				    		{% endfor %}
 				    	</select>
 				    </div>
-				    {% endfor %}
+				    
 				    {% else %}
 				    <div class="form-group has-error">
 				      <label for="nucleoBasic" class="col-lg-2 control-label labels">Nucleo Basico Conocimiento</label>
@@ -211,14 +220,15 @@
 				    </div>
 				   	{% endif %}
 				    {% if listMaxNivelEdu %}
-				    {% for max_nivel_educa in listMaxNivelEdu %}
 				    <div class="form-group">
 				      <label for="maximoNivelEducativo" class="col-lg-2 control-label labels">Maximo Nivel Educativo</label>
 				        <select class="form-control inputs" id="maximoNivelEducativo" name="maximoNivelEducativo">
+				    		{% for max_nivel_educa in listMaxNivelEdu %}
 				    		<option value="{{max_nivel_educa.id}}">{{ max_nivel_educa.nivel}}</option>
+				    		{% endfor %}
 				    	</select>
 				    </div>
-				    {% endfor %}
+				    
 				    {% else %}
 				    <div class="form-group has-error">
 				      <label for="maximoNivelEducativo" class="col-lg-2 control-label labels">Maximo Nivel Educativo</label>
@@ -229,14 +239,16 @@
 				    {% endif %}
 
 				    {% if listFuenteFinancia %}
-				    {% for fuente_financia in listFuenteFinancia %}
+				    
 				    <div class="form-group">
 				      <label for="fuenteFinancia" class="col-lg-2 control-label labels">Fuente de Financia</label>
 				        <select class="form-control inputs" id="fuenteFinancia" name="fuenteFinancia">
+				    		{% for fuente_financia in listFuenteFinancia %}
 				    		<option value="{{fuente_financia.id}}">{{ fuente_financia.nombre}}</option>
+				    		{% endfor %}
 				    	</select>
 				    </div>
-				    {% endfor %}
+				    
 				    {% else %}
 				    <div class="form-group has-error">
 				      <label for="fuenteFinancia" class="col-lg-2 control-label labels">Fuente de Financia</label>
@@ -247,14 +259,16 @@
 				    {% endif %}
 
 				    {% if listRedInvest %}
-				    {% for red_inves in listRedInvest %}
+				    
 				    <div class="form-group">
 				      <label for="redInvestigacion" class="col-lg-2 control-label labels">Red Investigacion</label>
 				        <select class="form-control inputs" id="redInvestigacion" name="redInvestigacion">
+				    		{% for red_inves in listRedInvest %}
 				    		<option value="{{red_inves.id}}">{{ red_inves.nombre}}</option>
+				    		{% endfor %}
 				    	</select>
 				    </div>
-				    {% endfor %}
+				    
 				    {% else %}
 				    <div class="form-group has-error">
 				      <label for="redInvestigacion" class="col-lg-2 control-label labels">Red Investigacion</label>
@@ -264,8 +278,25 @@
 				    </div>
 				    {% endif %}
 				    
+				    {% if listTipProy %}
+				    <div class="form-group">
+				      <label for="tipoProyecto" class="col-lg-2 control-label labels">Tipo Proyecto</label>
+				        <select class="form-control inputs" id="tipoProyecto" name="tipoProyecto" required>
+				    		{% for tipoProyectoObj in listTipProy %}
+				    		<option value="{{tipoProyectoObj.nombre}}">{{ tipoProyectoObj.nombre}}</option>
+				    		{% endfor %}
+				    	</select>
+				    </div>
 				    
-				    ---->
+				    {% else %}
+				    <div class="form-group has-error">
+				      <label for="lineaInvesti" class="col-lg-2 control-label labels">Lineas Investigacion</label>
+				        <select class="form-control inputs" id="lineaInvesti" name="lineaInvesti" required>
+				    		<option>No hay Grupos de investigacion</option>
+				    	</select>
+				    </div>		
+				    {% endif %}
+				   
 			</div>
 			<div class="form-group">
 			      <div class="col-lg-10 col-lg-offset-5">

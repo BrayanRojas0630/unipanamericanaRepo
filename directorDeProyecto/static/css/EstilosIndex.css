@@ -21,12 +21,12 @@
 	margin-right: 10px;
 }
 #formLogin{
-	background: #f09609;
+	background: #FA8253;
 	position: absolute;
 	top: 20%;
 	left: 28%;
 	width: 40%;
-	height: 50%;
+	height: 60%;
 	margin: 3%;
 	border-radius:15px;
 }
@@ -43,9 +43,6 @@
 	font-weight: bold;
 }
 
-#formLogin input{
-	margin-bottom: 3%;
-}
 #contenedor{
     background: rgba(0,0,0,0.8);
     position: absolute;
@@ -57,8 +54,8 @@
 }
 
 .alert.alert-dismissible.alert-danger.alerta{
-	background: #f09609;
-	color: #fff;
+	background: #FA8253;
+	color: #000;
 	position: absolute;
 	left: 30%;
 	top: 20%;

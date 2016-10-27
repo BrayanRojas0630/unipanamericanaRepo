@@ -11,29 +11,9 @@
 		<form class="form-horizontal" method="post" enctype="multipart/form-data">{% csrf_token %}
 		{{ form.as_p}}
 			<div class="formIzq">
-			{% if listaActividaddes %}
-			
-					<div class="form-group">
-				      <label for="idActividad" class="col-lg-2 control-label labels">Actividad A Editar</label>
-				       <select class="form-control inputs" id="idActividad" name="idActividad" required>
-				    		{% for actividades in listaActividaddes %}
-				    		<option value="{{actividades.id}}">{{ actividades.nombre}}</option>
-				    		{% endfor %}
-				    	</select>
-				    </div>
-			
-			{% else %}
-					<div class="form-group has-error">
-				      <label for="idActividad" class="col-lg-2 control-label labels">Actividad A Editar</label>
-				       <select class="form-control inputs" id="idActividad" name="idActividad" required>
-				    		<option>No tienes actividades</option>
-				    	</select>
-				    </div>
-			{% endif %}
-					
 				    <div class="form-group">
-				      <label for="nombreActividad" class="col-lg-2 control-label labels">Nombre Actividad</label>
-				        <input type="text" class="form-control inputs" id="nombreActividad" name="nombreActividad" placeholder="Actividad" required>
+				      <label for="nombreActividad" class="col-lg-2 control-label labels">Nombre Actividadd</label>
+				        <input type="text" class="form-control inputs" id="nombreActividad" name="nombreActividad" value="{{actividades.nombre}}" required>
 				    </div>
 				    <div class="form-group">
 				      <label for="fechaLimite" class="col-lg-2 control-label labels">Fecha Limite</label>
@@ -41,18 +21,18 @@
 				    </div>
 				    <div class="form-group">
 				      <label for="descripcion" class="col-lg-2 control-label labels">Descripcion Actividad</label>
-				        <textarea class="form-control inputs" rows="3" id="descripcion" name="descripcion" required></textarea>
+				        <textarea class="form-control inputs" rows="3" id="descripcion" name="descripcion" required>{{actividades.descripcion}}</textarea>
 				    </div>
 				    
 				    <div class="form-group">
 				      <label for="observaciones" class="col-lg-2 control-label labels">Observaciones</label>
-				        <input type="text" class="form-control inputs" id="observaciones" name="observaciones" placeholder="Observaciones">
+				        <input type="text" class="form-control inputs" id="observaciones" name="observaciones" value="{{actividades.observaciones}}">
 				    </div>
 				    
 				    <div class="form-group">
 				      <label for="estado" class="col-lg-2 control-label labels">Estado:</label>
-				        <select class="form-control inputs" id="estado" name="estado"required>
-				    		<option value="">---</option>
+				        <select class="form-control inputs" id="estado" name="estado" required value="{{actividades.estado}}">
+				    		<option value="{{actividades.estado}}">{{actividades.estado}}</option>
 				    		<option value="activa">Activa</option>
 				    		<option value="inactiva">Inactiva</option>
 				    	</select>
@@ -86,10 +66,10 @@
 				    <div class="form-group">
 				      <label for="corte" class="col-lg-2 control-label labels">Corte:</label>
 				        <select class="form-control inputs" id="corte" name="corte"required>
-				    		<option value="">---</option>
-				    		<option value="1">Primero</option>
-				    		<option value="2">Segundo</option>
-				    		<option value="3">Tercero</option>
+				    		<option value="{{actividades.corte}}">{{actividades.corte}}</option>
+				    		<option value="(1) primero">Primero</option>
+				    		<option value="(2) segundo">Segundo</option>
+				    		<option value="(3) tercero">Tercero</option>
 				    	</select>
 				    </div>
 				    
@@ -97,25 +77,16 @@
 				    <div class="form-group">
 				      <label for="tipo_actividad" class="col-lg-2 control-label labels">Tipo Actividad:</label>
 				        <select class="form-control inputs" id="tipo_actividad" name="tipo_actividad"required>
-				    		<option value="">---</option>
+				    		<option value="{{actividades.tipo_actividad}}">{{actividades.tipo_actividad}}</option>
 				    		<option value="Calificable">Calificable</option>
 				    		<option value="No Calificable">No Calificable</option>
 				    	</select>
 				    </div>
 					
 					
-					 <div class="form-group">
-				      <label for="estado" class="col-lg-2 control-label labels">Estado:</label>
-				        <select class="form-control inputs" id="estado" name="estado"required>
-				    		<option value="">---</option>
-				    		<option value="activa">Activa</option>
-				    		<option value="inactiva">Inactiva</option>
-				    	</select>
-				    </div>
-				
 					<div class="form-group">
 				      <label for="porcentaje" class="col-lg-2 control-label labels">Porcentaje</label>
-				        <input type="text" class="form-control inputs" id="porcentaje" name="porcentaje" placeholder="Porcentaje" required>
+				        <input type="text" class="form-control inputs" id="porcentaje" name="porcentaje" value="{{actividades.porcentaje}}" required>
 				    </div>
 				    
 			</div>
@@ -125,12 +96,7 @@
 			      	{% if message %}
 					<b>{{ message }}</b>
 					{% endif %}
-			        {% if listaActividaddes %}
 			        <button type="submit" class="btn btn-primary">Editar Actividad</button>
-			      	{% else %}
-			      	<button type="submit" class="btn btn-primary" disabled>Editar Actividad</button><br>
-			      	<b>Usd no tiene actividades, por favor cree una</b>
-			      	{% endif %}
 			      </div>
 			    </div>
 		</form>

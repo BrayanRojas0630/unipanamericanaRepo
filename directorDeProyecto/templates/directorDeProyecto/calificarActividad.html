@@ -1,0 +1,64 @@
+{% extends 'directorDeProyecto/base/baseDirectorProyecto.html' %}
+{% load staticfiles %}
+{% block title %}Calificar Actividad{% endblock %}
+{% block extraLinks %}
+<link rel="stylesheet" href="{% static 'css/EstilosCrearProyecto.css' %}">
+{% endblock %}
+{% block contend %}
+<div class="formulario">
+	<fieldset>
+		<legend>Calificar Actividad {{actividades.nombre}}</legend>
+			
+				{% if listActivEst %}
+				
+				<table class="table table-striped table-hover">
+					<tr>
+						<td><strong>Nombre Estudiante</strong></td>
+						<td><strong>Desarrollo</strong></td>
+						<td><strong>Adjunto</strong></td>
+						<td><strong>Corte</strong></td>
+						<td>
+						
+						</td>
+					</tr>
+				
+				{% for activ_estudiante in listActivEst %}
+				
+			        	<tr>
+			        	<form class="form-horizontal" method="post" enctype="multipart/form-data">{% csrf_token %}
+			        	
+			        	<div class="formIzq">
+			        		<div class="form-group">
+						      <input type="hidden" class="form-control inputs" id="idActividad_est" name="idActividad_est" value="{{activ_estudiante.id}}">
+				    		</div>
+				    	<div>
+			        	
+						<td>{{activ_estudiante.UsuarioEstudiante.username}}</a></td>
+						<td>{{activ_estudiante.desarrollo}}</td>
+						<td>{{activ_estudiante.adjunto}}</td>
+						<td>{{actividades.corte}}</td>
+						
+							<td>
+								<div class="form-group">
+						        	<input type="number" class="form-control inputs" id="nota" name="nota"  placeholder="Nota" required>
+						    	</div> 
+						    	<div class="col-lg-10 col-lg-offset-5">
+						    	 	<button type="submit" class="btn btn-primary">calificar</button>
+						    	 </div>
+						    </td>
+					    </form>
+					</tr>
+				
+			        {% endfor%}	
+	
+				
+				</table>
+				
+				
+				{% else %}
+				<center><b>Nadie ha solucionado esta actividad</b></center>
+				
+			    {% endif %}
+	</fieldset>
+</div>
+{% endblock %}
