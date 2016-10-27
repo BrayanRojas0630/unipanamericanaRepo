@@ -1,0 +1,42 @@
+{% extends 'estudiante/base/baseEstudiante.html'%}
+{% load staticfiles %}
+{% block title %}Mis Actividades{% endblock %}
+{% block extraLinks%}
+<link rel="stylesheet" href="{% static 'css/EstilosConsultas.css' %}">
+{% endblock%}
+{% block extraJs%}
+
+{% endblock %}
+
+{% block contend%}
+<div class="contenido">
+	<div class="titulo">
+		<h1>Mis Actividades</h1>
+	</div>
+
+	<table class="table table-striped table-hover ">
+	  <thead>
+	    <tr class="danger estiloTabla">
+	      <th>#</th>
+	      <th>Nombre</th>
+	      <th>Descripcion</th>
+	      <th>Fecha Limite</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    {% if listActividades %}
+		{% for actividades in listActividades  %}
+	    <tr class="active">
+	      <td><a href="#">{{actividades.id}}</a></td>
+	      <td>{{actividades.nombre}}</td>
+	      <td>{{actividades.descripcion}}</td>
+	      <td>{{actividades.fecha_Limite}}</td>
+	    </tr>
+	    {% endfor%}
+	    {% else %}
+	    <h1>No hay Registros</h1>
+	    {% endif %}
+	  </tbody>
+	</table> 
+</div>
+{% endblock %}

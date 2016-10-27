@@ -1,0 +1,68 @@
+{% extends 'estudiante/base/baseEstudiante.html' %}
+{% load staticfiles %}
+{% block title %}Subir Actividad{% endblock %}
+{% block extraLinks %}
+<link rel="stylesheet" href="{% static 'css/EstilosCrearProyecto.css' %}">
+{% endblock %}
+
+{% block contend %}
+<div class="formulario">
+	<fieldset>
+		<legend>Subir Actividad</legend>
+		<form class="form-horizontal" method="post" action="">{% csrf_token %}
+		{{ form.as_p}}
+			<div class="formIzq">
+			{% if listActividades %}
+			    <div class="form-group">
+				      <label for="idActividad" class="col-lg-2 control-label labels">Id Actividad:</label>
+				        <select class="form-control inputs" id="idActividad" name="idActividad">
+				        {% for actividades in listActividades %}
+				    		<option value="{{actividades.id}}">{{ actividades.id}}</option>
+				    	{% endfor %}
+				    	</select>
+				    </div>
+			{% else %}
+				<div class="form-group has-error">
+				      <label for="idActividad" class="col-lg-2 control-label labels">Id Actividad:</label>
+				        <select class="form-control inputs" id="idActividad" name="idActividad">
+				    		<option>No hay Actividades</option>
+				    	</select>
+				    </div>	    		
+			{% endif %}
+		    	<div class="form-group">
+			      <label for="desarrollo" class="col-lg-2 control-label labels">Desarrollo:</label>
+			        <textarea class="form-control inputs" rows="3"  id="desarrollo" name="desarrollo" placeholder="Escribe Desarrollo"></textarea>
+			    </div>
+			    {% if listActividades and listEstudiante %}
+			    <div class="col-lg-10 col-lg-offset-2 boton">
+			        	<input type="submit" class="btn btn-primary" id="subirActividad" name="subirActividad" value="subirActividad">
+			    </div>
+			    {% else %}
+			    <div class="col-lg-10 col-lg-offset-2 boton">
+			        	<input type="submit" class="btn btn-primary" id="subirActividad" name="subirActividad" value="subirActividad" disabled>
+			    </div>
+			    {% endif %}
+		    
+	    	</div>
+	    	<div class="formDer">
+	    	{% if listEstudiante %}
+	    		<div class="form-group">
+			    	<label for="usuarioEstudiante" class="col-lg-2 control-label labels">UsuarioEstudiante:</label>
+			        <input type="text" class="form-control inputs" id="usuarioEstudiante" name="usuarioEstudiante", value="{{user.username}}" disabled>
+		    	</div>
+		    	{% else %}
+		    	<div class="form-group has-error">
+		    		<label for="usuarioEstudiante" class="col-lg-2 control-label labels">UsuarioEstudiante:</label>
+			    	<input type="text" class="form-control inputs" id="usuarioEstudiante" name="usuarioEstudiante", value="usuario no identificado" disabled>
+			    </div>
+				{% endif %}
+		    	<div class="form-group">
+			    	<label for="desarrolloAdjunto" class="col-lg-2 control-label labels">Subir Desarrollo:</label>
+			        <input type="file" class="form-control inputs" id="desarrolloAdjunto" name="desarrolloAdjunto">
+		    	</div>
+	    	</div>
+	    </form>
+    </fieldset>
+</div>
+
+{% endblock %}

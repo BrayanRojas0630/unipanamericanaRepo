@@ -11,81 +11,106 @@
 		<form class="form-horizontal" method="post" enctype="multipart/form-data">{% csrf_token %}
 		{{ form.as_p}}
 			<div class="formIzq">
-				    <div class="form-group">
-				      <label for="usuario" class="col-lg-2 control-label labels">Usuario</label>
-				      <input type="text" class="form-control inputs" id="usuario" name="usuario" placeholder="ejemplo87"  required>
-				    </div>
-
-			<div class="form-group">
-			      	<label for="nombre" class="col-lg-2 control-label labels">Nombre</label>
-					<input type="text" class="form-control inputs" id="nombre" name="nombre" placeholder="nombre" required>
-					</div>
-
-
-				    <div class="form-group">
-				      <label for="apellido" class="col-lg-2 control-label labels">Apellido</label>
-				        <input type="text" class="form-control inputs" id="apellido" name="apellido" placeholder="apellido" required>
-				    </div>
-				    <div class="form-group">
-				      <label for="documento" class="col-lg-2 control-label labels">Documento</label>
-				        <input type="text" class="form-control inputs" id="documento" name="documento" placeholder="documento" required>
-				    </div>
-
-			<div class="form-group">
-				    <label for="telefono" class="col-lg-2 control-label labels">Telefono</label>
-				    <input type="text" class="form-control inputs" id="telefono" name="telefono" placeholder="telefono" required>
-			    </div>
-				    <div class="form-group">
-				      <label for="celular" class="col-lg-2 control-label labels">Celular</label>
-				        <input type="text" class="form-control inputs" id="celular" name="celular" placeholder="celular" required>
-				    </div>
-				  
-				    
-				    <div class="form-group">
-			      <div class="col-lg-10 col-lg-offset-5">
-			      	<center>
-			        <button type="submit" class="btn btn-primary">Crear Usuario</button>
-			      	</center>
-			      </div>
-			    </div>
+				<div class="form-group">
+					<label for="usuario" class="control-label labels">Usuario</label>
+					<input type="text" class="form-control inputs" id="usuario" name="usuario" placeholder="ejemplo87"  required>
+				</div>
 			</div>
 			<div class="formDer">
-
-			 <div class="form-group">
-				    <label for="mail" class="col-lg-2 control-label labels">E-Mail</label>
-				    <input type="email" class="form-control inputs" id="mail" name="mail" placeholder="ejemplo@ejemplo.com" required>
-			    </div>
-
-			<div class="form-group">
-				      <label for="mail_institucional" class="col-lg-2 control-label labels">Mail Institucional</label>
-				        <input type="email" class="form-control inputs" id="mail_institucional" name="mail_institucional" placeholder="ejemplo@ejemplo.com" required>
-				    </div>
-
-			<div class="form-group">
-				    <label for="facultad" class="col-lg-2 control-label labels">Facultad</label>
-				    <input type="text" class="form-control inputs" id="facultad" name="facultad" placeholder="facultad" required>
-			    </div>
-				    
 				<div class="form-group">
-				    <label for="password" class="col-lg-2 control-label labels">Contraseña</label>
-			        <input type="password" class="form-control inputs" id="password" name="password" placeholder="*********" required>
-			    </div>
+					<label for="nombre" class="control-label labels">Nombre</label>
+					<input type="text" class="form-control inputs" id="nombre" name="nombre" placeholder="nombre" required>
+				</div>
+			</div>
+			<div class ="formIzq">
+				<div class="form-group">
+					<label for="apellido" class="control-label labels">Apellido</label>
+					<input type="text" class="form-control inputs" id="apellido" name="apellido" placeholder="apellido" required>
+				</div>
+			</div>
+			<div class="formDer">
+				<div class="form-group">
+					<label for="password" class="control-label labels">Contraseña</label>
+					<input type="password" class="form-control inputs" id="password" name="password" placeholder="*********" required>
+				</div>
+			</div>
+			<div class="formIzq">
+				<div class="form-group">
+					<label for="documento" class="control-label labels">Documento</label>
+					<input type="text" class="form-control inputs" id="documento" name="documento" placeholder="documento" required>
+				</div>
+			</div>
+			<div class="formDer">
+				<div class="form-group">
+					<label for="mail" class="control-label labels">E-Mail</label>
+					<input type="email" class="form-control inputs" id="mail" name="mail" placeholder="ejemplo@ejemplo.com" required>
+				</div>
+			</div>
+			<div class="formIzq">
+				<div class="form-group">
+					<label for="mail_institucional" class="control-label labels">Mail Institucional</label>
+					<input type="email" class="form-control inputs" id="mail_institucional" name="mail_institucional" placeholder="ejemplo@ejemplo.com" required>
+				</div>
+			</div>
+			<div class="formDer">
+				<div class="form-group">
+					<label for="telefono" class="control-label labels">Telefono</label>
+					<input type="text" class="form-control inputs" id="telefono" name="telefono" placeholder="telefono" required>
+				</div>
+			</div>
+			<div class="formIzq">
+				<div class="form-group">
+					<label for="celular" class="control-label labels">Celular</label>
+					<input type="text" class="form-control inputs" id="celular" name="celular" placeholder="celular" required>
+				</div>
+			</div>
+			<div class="formDer">
+				<div class="form-group">
+						<label for="facultad" class="control-label labels">Facultad</label>
+						<input type="text" class="form-control inputs" id="facultad" name="facultad" placeholder="facultad" required>
+				</div>
+			</div>
+			<div class="formIzq">
+				<div class="form-group">
+					<label for="rol" class="control-label labels">Rol</label>
+						<select class="form-control inputs" id="rol" name="rol" required>
+							<option>Administrador</option>
+							<option>Director de Proyecto</option>
+						</select>
+				</div>
+			</div>
+			<div class="formDer">
+				<div class="form-group">
+					<label for="nro_proyectos_a_cargo" class="control-label labels">Nro proyectos a cargo</label>
+						<input type="text" class="form-control inputs" id="nro_proyectos_a_cargo" name="nro_proyectos_a_cargo" placeholder="nro_proyectos_a_cargo">
+				</div>
+			</div>
+			<div class="formIzq">
+				<div class="form-group">
+					<div class="col-lg-10 col-lg-offset-5">
+						<center>
+							<button type="submit" class="btn btn-primary">Crear Usuario</button>
+						</center>
+					</div>
+				</div>
+			</div>
+			<!-- <div class="formIzq">}
+			
+			
+			
+				  
+				    
+				</div> -->
+			<!-- <div class="formDer">
+			
+			
+			
+				    
 			   
 			   
 			  
-			<div class="form-group">
-				    <label for="rol" class="col-lg-2 control-label labels">Rol</label>
-				    <select class="form-control inputs" id="rol" name="rol" required>
-			        	<option>Administrador</option>
-			        	<option>Director de Proyecto</option>
-					</select>
-			    </div>
-
-			<div class="form-group">
-				      <label for="nro_proyectos_a_cargo" class="col-lg-2 control-label labels">Nro proyectos a cargo</label>
-				        <input type="text" class="form-control inputs" id="nro_proyectos_a_cargo" name="nro_proyectos_a_cargo" placeholder="nro_proyectos_a_cargo">
-				</div>
-			</div>
+			
+			</div> -->
 		</form>
 	</fieldset>
 </div>

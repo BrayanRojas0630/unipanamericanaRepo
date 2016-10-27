@@ -3,10 +3,11 @@
 	padding-top: 15%;
 }
 
-.titulo h1{
+.otroTitulo h1{
 	width: 100%;
+	color: #000;
 	font-weight: bold;
-	margin-top: 50%;	
+	margin-top: 30%;	
 	text-align: center;
 }
 

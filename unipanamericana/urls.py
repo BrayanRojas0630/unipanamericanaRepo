@@ -21,7 +21,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^administrador/', include('administrador.urls')),
     url(r'^directorDeProyecto/', include('directorDeProyecto.urls')),
-  #url(r'^estudiante/', include('estudiante.urls')),
+    url(r'^estudiante/', include('estudiante.urls')),
   
     
     

@@ -10,6 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
 
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<!-- <script src="{% static 'js/jQuery.js' %}"></script> -->
 	<script src="{% static 'js/ScriptsGeneral.js' %}"></script>
 	<script src="{% static 'js/ScriptsPagPrincAdmin.js' %}"></script>
 </head>
@@ -30,13 +31,13 @@
 	<ul class="menu">
 		<li><a href="#"><i class="icono izquierda fa fa-file-archive-o" aria-hidden="true"></i>Info Proyectos<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
 			<ul>
-				<li><a href="PaginaPrincipalEstudiante/infoProyecto">Consular Info Proyecto</a></li>
+				<li><a href="{% url 'listaProyectos' %}">Consular Info Proyecto</a></li>
 			</ul>
 		</li>
 		<li><a href="#"><i class="icono izquierda fa fa-check" aria-hidden="true"></i></i>Actividades<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
 			<ul>
-				<li><a href="misActividades">Mis Actividades</a></li>
-				<li><a href="subirActividad">Subir Actividad</a></li>
+				<li><a href="{% url 'listaActividades' %}">Mis Actividades</a></li>
+				<li><a href="{% url 'subirActividad' %}">Subir Actividad</a></li>
 				<li><a href="#">Editar Actividad</a></li>
 			</ul>
 		</li>
