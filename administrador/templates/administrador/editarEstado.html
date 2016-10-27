@@ -1,0 +1,48 @@
+{% extends 'administrador/base/baseAdmin.html' %}
+{% load staticfiles %}
+{% block title %}Editarr Usuario{% endblock %}
+{% block extraLinks %}
+<link rel="stylesheet" href="{% static 'css/EstilosCrearProyecto.css' %}">
+{% endblock %}
+{% block contend %}
+<div class="formulario">
+	<fieldset>
+		<legend>Editar estado del Proyecto</legend>
+		<form class="form-horizontal" method="post" enctype="multipart/form-data">{% csrf_token %}
+		{{ form.as_p}}
+			<div class="formIzq">
+
+				<div class="form-group">
+				      <label for="nombre" class="col-lg-2 control-label labels">Nombre Proyecto</label>
+				      <input type="text" class="form-control inputs" id="nombre" name="nombre" value="{{proyectos.nombre_IES}}" required disabled>
+				</div> 
+				<div class="form-group">
+				      <label for="estadoA" class="col-lg-2 control-label labels">Estado Actual</label>
+				      <input type="text" class="form-control inputs" id="estadoA" name="estadoA" value="{{proyectos.estado}}" required disabled>
+				</div> 
+
+
+				<div class="form-group">
+					<label for="estadoP" class="col-lg-2 control-label labels">Estado</label>
+					<select class="form-control inputs" id="estadoP" name="estadoP" required>
+			        	<option>En Convocatoria</option>
+			        	<option>No Convocatoria</option>
+			        	<option>En Ejecución</option>
+					</select>
+			    </div>
+				 
+		<div class="form-group">
+			      <div class="col-lg-10 col-lg-offset-5">
+			        <button type="submit" class="btn btn-primary">Cambiar Estado</button>
+			   
+			      </div>
+			    </div>
+			    </div>
+
+		</form>
+		
+	</fieldset>
+</div>
+{% endblock %}
+
+   

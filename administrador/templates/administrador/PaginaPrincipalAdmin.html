@@ -47,11 +47,34 @@
 		<li><a href="#"><i class="icono izquierda fa fa-file-archive-o" aria-hidden="true"></i>Proyectos<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
 			<ul>
 				<li><a href="{% url 'crearProyecto' %}">Crear Proyecto</a></li>
-				<li><a href="{% url 'agregarEstudiante' %}">Agregar Estudiantes a Proyecto</a></li>
+				<li><a href="{% url 'crearProyecto' %}">Agregar Sustentacion</a></li>
+				<li><a href="{% url 'crearProyecto' %}">Editar Proyecto</a></li>
+				<li><a href="{% url 'crearProyecto' %}">Eliminar Proyecto</a></li>
+			
 				<!-- <li><a href="#">Editar Proyecto</a></li> -->
 				<!-- <li><a href="#">Eliminar Proyecto</a></li> -->
 			</ul>
 		</li>
+
+		<li><a href="#"><i class="icono izquierda fa fa-plus" aria-hidden="true"></i>Convocatorias<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
+			<ul>
+				<li><a href="{% url "realizarConvocatoria" %}">Registrar Convocatorias</a></li>
+				<li><a href="#">Aprobar Postulaciones</a></li>
+				<!-- <li><a href="#">Modificar Informacion</a></li> -->
+				<!-- <li><a href="#">Eliminar Informacion</a></li> -->
+			</ul>
+		</li>
+
+
+		<li><a href="#"><i class="icono izquierda fa fa-plus" aria-hidden="true"></i>Actividades<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
+			<ul>
+				<li><a href="#">Registrar Peso de Notas</a></li>
+		
+				<!-- <li><a href="#">Modificar Informacion</a></li> -->
+				<!-- <li><a href="#">Eliminar Informacion</a></li> -->
+			</ul>
+		</li>
+
 	</ul>
 </div>
 <section class="contenido wrapper">

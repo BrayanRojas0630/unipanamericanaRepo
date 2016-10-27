@@ -256,3 +256,26 @@ def eliminarUsuario_view(request, usuario_id):
     usuario.delete()
     user.delete()
     return render(request,"administrador/PaginaPrincipalAdmin.html")
+
+@login_required
+def realizarConvocatoria_view(request):
+    proyectos= Proyecto.objects.all()    
+    contexto = {'listProyectos':proyectos}
+    return render(request,'administrador/listaProyectos.html', contexto)
+
+@login_required
+def cargar_a_Convocatoria_view(request, proyecto_id):
+    message=None
+    
+    proyectos=Proyecto.objects.get(pk=proyecto_id)
+    
+    if request.method=="POST":
+        proyectos.estado= request.POST['estadoP']
+        proyectos.save()
+
+        context={'proyectos':proyectos}
+        return render(request,"administrador/PaginaPrincipalAdmin.html")  
+    else:
+        context={'proyectos':proyectos}
+        return render(request,'administrador/editarEstado.html',context)
+

@@ -1,0 +1,60 @@
+{% extends 'administrador/base/baseAdmin.html' %}
+{% load staticfiles %}
+{% block title %}Proyectos{% endblock %}
+{% block extraLinks %}
+<link rel="stylesheet" href="{% static 'css/EstilosCrearProyecto.css' %}">
+{% endblock %}
+{% block contend %}
+<div class="formulario">
+	<fieldset>
+<center><legend>Lista de Proyectos</legend></center>
+	<table class="table table-striped table-hover">
+		<thead>
+			<tr class="danger estiloTabla" bgcolor= "black">
+				<td>Nombre Macroproyecto</td>
+				<td>Nombre del Proyecto</td>
+				<td>Sublinea</td>
+				<td>Producto</td>
+				<td>Perfiles</td>
+				<td>Usuario Director</td>
+				<td>Empresa</td>
+				<td>Cupo Maximo(Estudiantes)</td>
+				<td>Estado</td>
+			</tr>
+
+		</thead>
+		<tbody>
+			{% if listProyectos %}
+			{% for proyectos in listProyectos %}
+			<tr>
+				<td>{{proyectos.nombreMacroProyecto}}</td>
+				<td>{{proyectos.nombre_IES}}</td>
+				<td>{{proyectos.sublinea}}</td>
+				<td>{{proyectos.tipo_proyecto}}</td>
+				<td>{{proyectos.perfiles}}</td>
+				<td>{{proyectos.directorDeProyecto}}</td>
+				<td>{{proyectos.empresa}}</td>
+				<td>{{proyectos.cupoMax}}</td>
+				<td>{{proyectos.estado}}</td>	
+				
+				<td>
+					<td><a href="{{proyectos.id}}/cargar_a_convocatoria">Editar Estado</a></td>
+				</td>
+
+			</tr>
+			{% endfor %}
+			{% else %}
+			<h1>no hay registros</h1>
+			{% endif %}
+		</tbody>
+
+		
+
+	</table>		
+
+		
+	</fieldset>
+</div>
+	
+
+{% endblock %}
